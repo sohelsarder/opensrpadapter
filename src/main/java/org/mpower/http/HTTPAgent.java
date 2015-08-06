@@ -1,6 +1,9 @@
 package org.mpower.http;
 
 
+import static org.apache.http.HttpStatus.SC_OK;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyStore;
 
@@ -55,10 +58,9 @@ public class HTTPAgent {
 
     public Response<String> post(String postURLPath, String jsonPayload) {
         try {
-            setCredentials(OPENSRP_USER, OPENSRP_PWD);
+            //setCredentials(OPENSRP_USER, OPENSRP_PWD);
             HttpPost httpPost = new HttpPost(postURLPath);
-			String encoded = new String(Base64.encodeBase64((OPENSRP_USER+":"+OPENSRP_PWD).getBytes()));
-            httpPost.setHeader("Authorization", "Basic "+encoded);
+            httpPost.setHeader("Authorization", "Basic " + getEncodedCredentials());
 
             StringEntity entity = new StringEntity(jsonPayload, HTTP.UTF_8);
             entity.setContentType("application/json; charset=utf-8");
@@ -77,13 +79,13 @@ public class HTTPAgent {
     }
 
     public Response<String> fetch(String requestURLPath) {
-    	 System.out.println("fetch url: " + requestURLPath);
         try {
-        	setCredentials(OPENSRP_USER, OPENSRP_PWD);
-            String responseContent = IOUtils.toString(httpClient.fetchContent(new HttpGet(requestURLPath)));
-            System.out.println("responseContent: " + responseContent);
-            return new Response<String>(ResponseStatus.success, responseContent);
+        	HttpGet request = new HttpGet(requestURLPath);    		
+            request.setHeader("Authorization", "Basic " + getEncodedCredentials());
+            String responseContent = IOUtils.toString(httpClient.fetchContent(request));
+            return new Response<String>(ResponseStatus.success,responseContent);
         } catch (Exception e) {
+        	System.out.println("failed: " + e.getMessage());
             return new Response<String>(ResponseStatus.failure, null);
         }
     }
@@ -93,6 +95,10 @@ public class HTTPAgent {
         httpClient.getCredentialsProvider().setCredentials(new AuthScope("http://192.168.21.87:8080/", -1, "OpenSRP"),
                 new UsernamePasswordCredentials(userName, password));
     }
+
+	private String getEncodedCredentials() {
+		return new String(Base64.encodeBase64((OPENSRP_USER + ":" + OPENSRP_PWD).getBytes()));
+	}
     
     private SocketFactory sslSocketFactoryWithopensrpCertificate() {
         try {

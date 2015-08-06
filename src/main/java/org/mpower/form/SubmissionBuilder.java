@@ -28,7 +28,7 @@ public class SubmissionBuilder {
 		writeFormSubmission();
 	}
 
-	public static String getFormInstance() {
+	private static String getFormInstance() {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -50,18 +50,22 @@ public class SubmissionBuilder {
 
 	}
 
-	public static void writeFormSubmission() {
+	private static void writeFormSubmission() {
 		String jsonPayload = mapToFormSubmissionDTO();
 		httpagent = new HTTPAgent();
 		System.out.println("Submission Status: " + httpagent.post(SUBMISSION_URL, jsonPayload).isFailure());
+	}
+	
+	private static String getAnmID (String locationName){
+		HTTPAgent httpAgent = new HTTPAgent();		
+		return httpAgent.fetch("http://192.168.21.195:9979/user-location?location-name=" + locationName).payload();
 	}
 
 	private static String mapToFormSubmissionDTO() {
 		List<org.ei.drishti.dto.form.FormSubmissionDTO> formSubmissions = new ArrayList<org.ei.drishti.dto.form.FormSubmissionDTO>();
 		String instanceID = UUID.randomUUID().toString();
-
 		formSubmissions.add(new org.ei.drishti.dto.form.FormSubmissionDTO(
-				"sohel", instanceID, entityID,
+				getAnmID("2-KA"), instanceID, entityID,
 				"new_household_registration", getFormInstance(),
 				"1435819226470", "7"));
 

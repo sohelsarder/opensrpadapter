@@ -1,5 +1,6 @@
 package org.mpower.http;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpResponse;
@@ -24,8 +25,7 @@ public class GZipEncodingHttpClient {
     public InputStream fetchContent(HttpGet request) throws IOException {
         if (!request.containsHeader("Accept-Encoding")) {
             request.addHeader("Accept-Encoding", "gzip");
-        }
-
+        }  
         HttpResponse response = httpClient.execute(request);
         if (response.getStatusLine().getStatusCode() != SC_OK) {
             throw new IOException("Invalid status code: " + response.getStatusLine().getStatusCode());
