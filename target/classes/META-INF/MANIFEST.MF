@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: opensrpadapter
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: org.mPower.opensrpAdapter
+Build-Jdk: 1.7.0_80
+Built-By: sohel
+Created-By: Maven Integration for Eclipse
+
