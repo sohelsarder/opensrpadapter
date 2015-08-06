@@ -1,26 +1,15 @@
 package org.mpower.http;
 
 
-import java.io.InputStream;
-import java.security.KeyStore;
-
-import javax.net.ssl.SSLException;
-
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.scheme.SocketFactory;
-import org.apache.http.conn.ssl.AbstractVerifier;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.SingleClientConnManager;
@@ -43,9 +32,7 @@ public class HTTPAgent {
         HttpConnectionParams.setSoTimeout(basicHttpParams, 60000);
 
         SchemeRegistry registry = new SchemeRegistry();
-        registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-        //registry.register(new Scheme("https", sslSocketFactoryWithopensrpCertificate(), 443));
-
+        registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));    
         SingleClientConnManager connectionManager = new SingleClientConnManager(basicHttpParams, registry);
         
         httpClient = new GZipEncodingHttpClient(new DefaultHttpClient(connectionManager, basicHttpParams));
@@ -55,7 +42,6 @@ public class HTTPAgent {
 
     public Response<String> post(String postURLPath, String jsonPayload) {
         try {
-            //setCredentials(OPENSRP_USER, OPENSRP_PWD);
             HttpPost httpPost = new HttpPost(postURLPath);
             httpPost.setHeader("Authorization", "Basic " + getEncodedCredentials());
 
@@ -87,45 +73,8 @@ public class HTTPAgent {
         }
     }
 
-
-    private void setCredentials(String userName, String password) {
-        httpClient.getCredentialsProvider().setCredentials(new AuthScope("http://192.168.21.87:8080/", -1, "OpenSRP"),
-                new UsernamePasswordCredentials(userName, password));
-    }
-
 	private String getEncodedCredentials() {
 		return new String(Base64.encodeBase64((OPENSRP_USER + ":" + OPENSRP_PWD).getBytes()));
 	}
-    
-    private SocketFactory sslSocketFactoryWithopensrpCertificate() {
-        try {
-            KeyStore trustedKeystore = KeyStore.getInstance("BKS");
-            InputStream inputStream = null;
-            try {
-                trustedKeystore.load(inputStream, "phone red pen".toCharArray());
-            } finally {
-                inputStream.close();
-            }
-            SSLSocketFactory socketFactory = new SSLSocketFactory(trustedKeystore);
-            final X509HostnameVerifier oldVerifier = socketFactory.getHostnameVerifier();
-            socketFactory.setHostnameVerifier(new AbstractVerifier() {
-                @Override
-                public void verify(String host, String[] cns, String[] subjectAlts) throws SSLException {
-                    for (String cn : cns) {
-                        if (!false || host.equals(cn)) {
-                            return;
-                        }
-                    }
-                    oldVerifier.verify(host, cns, subjectAlts);
-                }
-            });
-            return socketFactory;
-        } catch (Exception e) {
-            throw new AssertionError(e);
-        }
-    }
-
-
-
 
 }

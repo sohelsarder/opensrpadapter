@@ -82,8 +82,7 @@ public class Form {
 		String nodeValue = "";
 		try {
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			nodeValue = xPath.compile(nodePath).evaluate(
-					XMLData.getXmlDocument());
+			nodeValue = xPath.compile(nodePath).evaluate(XMLData.getXmlDocument());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -100,8 +99,7 @@ public class Form {
 
 		try {
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			nodeValue = xPath.compile(nodePath).evaluate(
-					XMLData.getXmlDocument());
+			nodeValue = xPath.compile(nodePath).evaluate(XMLData.getXmlDocument());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

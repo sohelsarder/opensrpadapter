@@ -11,9 +11,6 @@ import javax.ws.rs.Produces;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.mpower.form.XMLData;
-import org.mpower.form.SubmissionBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
-
+import org.mpower.form.XMLData;
+import org.mpower.form.SubmissionBuilder;
 
 @Controller
 @RestController
