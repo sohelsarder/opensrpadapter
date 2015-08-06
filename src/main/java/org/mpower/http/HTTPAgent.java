@@ -1,9 +1,6 @@
 package org.mpower.http;
 
 
-import static org.apache.http.HttpStatus.SC_OK;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyStore;
 
