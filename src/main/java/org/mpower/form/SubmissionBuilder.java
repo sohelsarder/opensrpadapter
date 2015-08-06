@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 public class SubmissionBuilder {
-	private static final String FORMS_DIR = "/home/sohel/workspace-opensrp/opensrpadapter/Forms/";
+	private static final String FORMS_DIR = "/home/user/workspace/opensrpadapter/Forms/";
 	private static final String OPENSRP_BASE_URL = "http://192.168.21.218:9979/";
 	private static final String SUBMISSION_URL = "http://192.168.21.218:9979/form-submissions/";
 	private static final String OPENSRP_USER = "sohel";
@@ -56,14 +56,14 @@ public class SubmissionBuilder {
 	
 	private static String getAnmID (String locationName){
 		HTTPAgent httpAgent = new HTTPAgent();		
-		return httpAgent.fetch("http://192.168.21.195:9979/user-location?location-name=" + locationName).payload();
+		return httpAgent.fetch("http://192.168.21.218:9979/user-location?location-name=" + locationName).payload();
 	}
 
 	private static String mapToFormSubmissionDTO() {
 		List<org.ei.drishti.dto.form.FormSubmissionDTO> formSubmissions = new ArrayList<org.ei.drishti.dto.form.FormSubmissionDTO>();
 		String instanceID = UUID.randomUUID().toString();
 		formSubmissions.add(new org.ei.drishti.dto.form.FormSubmissionDTO(
-				getAnmID("2-KA"), instanceID, entityID,
+				getAnmID("2-KA").replaceAll("^\"|\"$", ""), instanceID, entityID,
 				"new_household_registration", getFormInstance(),
 				"1435819226470", "7"));
 

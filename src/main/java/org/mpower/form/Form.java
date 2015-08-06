@@ -2,13 +2,16 @@ package org.mpower.form;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
+
 import org.mpower.http.HTTPAgent;
 
 public class Form {
 	public String bind_type;
 	public String default_bind_path;
+	private static final String SUBMISSION_BRNID = "http://192.168.21.218:9979/entity-id?brn-id=";
 	public List<Field> fields = new ArrayList<Field>();
 	public List<SubForm> sub_forms = new ArrayList<SubForm>();
 
@@ -64,7 +67,7 @@ public class Form {
 		System.out
 				.println("brnList: "
 						+ httpAgent
-								.fetch("http://192.168.21.195:9979/entity-id?brn-id=65321111111111112,65321111111111112")
+								.fetch(SUBMISSION_BRNID + "65321111111111112,65321111111111112")
 								.payload());
 		return existingEntityID;
 	}
