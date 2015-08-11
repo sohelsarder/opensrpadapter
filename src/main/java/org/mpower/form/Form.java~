@@ -29,7 +29,7 @@ public class Form {
 				String nodeValue = searchInXML(field.read);
 				field.value = nodeValue;
 			} else {
-				//String entityID = checkExistingClients(getBRNList("/data/woman/FWWOMBID"));
+				//List<String> list = buildFormInstanceFields("/model/instance/FWNewHH/woman/");
 				/*List<String> list = buildFormInstanceFields("/data/census/FDWOMBID");
 				String entityID = null;
 				if (!list.isEmpty()) {
@@ -49,7 +49,7 @@ public class Form {
 					field.value = nodeValue;
 					SubmissionBuilder.entityID = nodeValue;
 					System.out.println("servis enityID:" + SubmissionBuilder.entityID);
-				//}
+				
 			}
 
 		}
