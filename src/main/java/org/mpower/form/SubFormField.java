@@ -10,6 +10,7 @@ public class SubFormField {
 	public String shouldLoadValue;
 	public String source;
 	public String bind;
+	public String read;
 	
 	public SubFormField() {
 	

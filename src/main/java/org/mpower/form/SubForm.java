@@ -31,6 +31,7 @@ public class SubForm {
 	}
 
 	public void buildSubFormInstanceFields(String subFormDefaultBindPath) {
+		subFormDefaultBindPath = "census";
 
 		try {
 			Document xmlDocument = XMLData.getXmlDocument();
@@ -41,7 +42,7 @@ public class SubForm {
 				NodeList childNodeList = nodeList.item(i).getChildNodes();
 				for (int j = 0; j < childNodeList.getLength(); j++) {
 					if (childNodeList.item(j).getNodeType() == Node.ELEMENT_NODE) {
-						hm.put(childNodeList.item(j).getNodeName(),
+						hm.put(childNodeList.item(j).getNodeName().replace("FD", "FW"),
 								childNodeList.item(j).getTextContent());
 /*						System.out.println("Name : "
 								+ childNodeList.item(j).getNodeName());
@@ -58,5 +59,7 @@ public class SubForm {
 		}
 
 	}
+	
+	
 
 }

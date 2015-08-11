@@ -7,6 +7,9 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
 
 import org.mpower.http.HTTPAgent;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class Form {
 	public String bind_type;
@@ -23,19 +26,30 @@ public class Form {
 				field.source = this.bind_type + "." + field.name;
 
 			if (field.bind != null) {
-				String nodeValue = searchInXML("/data/"
-						+ nodeNameConverter(extractLastNode(field.bind)));
+				String nodeValue = searchInXML(field.read);
 				field.value = nodeValue;
 			} else {
-				String entityID = checkExistingClients(getBRNList("/data/woman/FWWOMBID"));
-				if (entityID != null) {
+				//List<String> list = buildFormInstanceFields("/model/instance/FWNewHH/woman/");
+				/*List<String> list = buildFormInstanceFields("/data/census/FDWOMBID");
+				String entityID = null;
+				if (!list.isEmpty()) {
+				entityID = checkExistingClients(list);	
+				}*/
+				String Brn = searchInXML("/data/census/FDWOMBID");
+				List<String> list = new ArrayList<String>();
+				list.add(Brn);
+				String entityID = checkExistingClients(list);
+				System.out.println("service enityID:" + entityID);
+				/*if (entityID != null) {
 					field.value = entityID;
 					SubmissionBuilder.entityID = entityID;
-				} else {
+				} 
+				else {*/
 					String nodeValue = searchInXML("/data/meta/instanceID");
 					field.value = nodeValue;
 					SubmissionBuilder.entityID = nodeValue;
-				}
+					System.out.println("servis enityID:" + SubmissionBuilder.entityID);
+				
 			}
 
 		}
@@ -63,12 +77,15 @@ public class Form {
 
 	private static String checkExistingClients(List<String> BRN) {
 		String existingEntityID = null;
-		HTTPAgent httpAgent = new HTTPAgent();
-		System.out
-				.println("brnList: "
-						+ httpAgent
-								.fetch(SUBMISSION_BRNID + "65321111111111112,65321111111111112")
-								.payload());
+		StringBuilder listString = new StringBuilder();
+		for (String s : BRN)
+		     listString.append(s+",");
+		if(listString.length()>0){
+			listString.deleteCharAt(listString.length()-1);
+			HTTPAgent httpAgent = new HTTPAgent();
+			existingEntityID = httpAgent.fetch(SUBMISSION_BRNID + listString).payload();
+			System.out.println("brnList: " + existingEntityID);
+		}
 		return existingEntityID;
 	}
 
@@ -108,6 +125,33 @@ public class Form {
 		}
 		brnList.add(nodeValue);
 		return brnList;
+
+	}
+	
+	private List<String> buildFormInstanceFields(String subFormDefaultBindPath) {
+
+		try {
+			List<String> brnList = new ArrayList<>();
+			Document xmlDocument = XMLData.getXmlDocument();
+			NodeList nodeList = xmlDocument
+					.getElementsByTagName(subFormDefaultBindPath);
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				NodeList childNodeList = nodeList.item(i).getChildNodes();
+				for (int j = 0; j < childNodeList.getLength(); j++) {
+					if (childNodeList.item(j).getNodeType() == Node.ELEMENT_NODE) {
+		                if (childNodeList.item(i).getNodeName().equalsIgnoreCase("FWWOMBID")) {                    	
+		                    brnList.add(childNodeList.item(j).getTextContent());
+		                }					
+					}
+
+				}
+			}
+			return brnList;
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
 
 	}
 

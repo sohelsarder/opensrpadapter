@@ -11,6 +11,7 @@ public class Field {
 	public String bind;
 	public String source;
 	public String value;
+	public String read;
 	
 	public Field() {
 	
