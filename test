@@ -1,40 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data encounter_type="Census and Registration" id="21">
-<i_start_time openmrs_entity="encounter" openmrs_entity_id="encounter_date">2015-08-10T17:35:50.517+06</i_start_time>
-<i_end_time openmrs_entity="encounter" openmrs_entity_id="encounter_start">2015-08-10T17:36:35.382+06</i_end_time>
-<today openmrs_entity="encounter" openmrs_entity_id="encounter_end">2015-08-10</today>
-<FDCENDATE openmrs_entity="concept" openmrs_entity_id="160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2015-08-10</FDCENDATE>
+<i_start_time openmrs_entity="encounter" openmrs_entity_id="encounter_date">2015-08-20T19:33:14.013+06</i_start_time>
+<i_end_time openmrs_entity="encounter" openmrs_entity_id="encounter_start">2015-08-20T19:34:38.509+06</i_end_time>
+<today openmrs_entity="encounter" openmrs_entity_id="encounter_end">2015-08-20</today>
+<FDNHREGDATE openmrs_entity="concept" openmrs_entity_id="160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2015-08-20</FDNHREGDATE>
+<FDCENCONSENT>1</FDCENCONSENT>
+<FDCENCONSENT2>1</FDCENCONSENT2>
+<FDCENCONSENTPIC>1440077609345.jpg</FDCENCONSENTPIC>
 <FDCENSTAT openmrs_entity="concept">1</FDCENSTAT>
-<census openmrs_entity="person" openmrs_entity_id="Census and New Woman Registration">
-<FDWOMNOTE/>
-<FDWOMNID openmrs_entity="person_identifier" openmrs_entity_id="NID">1234567890123</FDWOMNID>
-<FDWOMBID openmrs_entity="person_identifier" openmrs_entity_id="Birth Registration ID">12345678901234567</FDWOMBID>
-<FDBIRTHDATE openmrs_entity="person" openmrs_entity_id="birthdate">1990-08-10</FDBIRTHDATE>
-<FDWOMAGE>25</FDWOMAGE>
-<DisplayAge openmrs_entity="person" openmrs_entity_id="woman age"/>
-<FDCWOMSTRMEN openmrs_entity="concept">0</FDCWOMSTRMEN>
-<FDCWOMHUSLIV openmrs_entity="concept">1</FDCWOMHUSLIV>
-<FDCWOMHUSSTR openmrs_entity="concept">0</FDCWOMHUSSTR>
+<woman openmrs_entity="person" openmrs_entity_id="Census and New Woman Registration">
+<note/>
+<FWWOMFNAME openmrs_entity="person" openmrs_entity_id="first_name">Shakila</FWWOMFNAME>
+<FWWOMLNAME openmrs_entity="person" openmrs_entity_id="last_name">.</FWWOMLNAME>
+<FDWOMNID openmrs_entity="person_identifier" openmrs_entity_id="NID">5463987548548</FDWOMNID>
+<FDWOMBID openmrs_entity="person_identifier" openmrs_entity_id="Birth Registration ID">58744444552545254</FDWOMBID>
+<FDBIRTHDATE openmrs_entity="person" openmrs_entity_id="birthdate">1994-08-20</FDBIRTHDATE>
+<FDWOMAGE>21</FDWOMAGE>
+<display_age/>
+<GOBHHID openmrs_entity="person" openmrs_entity_id="GoB HHID">7456</GOBHHID>
+<JiVitAHHID openmrs_entity="person" openmrs_entity_id="JiVitA HHID">7456</JiVitAHHID>
+<FDHUSNAME>Shakil</FDHUSNAME>
+<FDNHWOMSTRMEN openmrs_entity="concept" openmrs_entity_id="163006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">0</FDNHWOMSTRMEN>
+<FDNHWOMHUSLIV openmrs_entity="concept" openmrs_entity_id="162994AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDNHWOMHUSLIV>
+<FDNHWOMHUSSTR openmrs_entity="concept" openmrs_entity_id="162959AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">0</FDNHWOMHUSSTR>
 <FDELIGIBLE>1</FDELIGIBLE>
-<id>2f9107a1-551b-4394-b334-ed387be97687</id>
-</census>
+<id>7e969073-3552-4061-9758-3b8d3158c7f1</id>
+<FWGENDER>female</FWGENDER>
+<MauzaparaName>CHAPADAHA - PURBO PARA</MauzaparaName>
+</woman>
 <mobile>
 <FDCENOWNMOB>0</FDCENOWNMOB>
 </mobile>
 <meta>
-<instanceID>2f9107a1-551b-4394-b334-ed387be97687</instanceID>
+<instanceID>7e969073-3552-4061-9758-3b8d3158c7f1</instanceID>
 </meta>
-<TLI_MauzaPara openmrs_entity="person_address" openmrs_entity_id="Mauza_para" openmrs_entity_parent="usual_residence">1</TLI_MauzaPara>
-<TLI_NHHHGPS openmrs_entity="person_address" openmrs_entity_id="geopoint" openmrs_entity_parent="usual_residence"/>
-<TLI_HOHFNAME openmrs_entity="person" openmrs_entity_id="first_name">As</TLI_HOHFNAME>
-<TLI_HOHGENDER openmrs_entity="person" openmrs_entity_id="gender">1</TLI_HOHGENDER>
-<TLI_NHHMBRNUM openmrs_entity="concept" openmrs_entity_id="5611AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">5</TLI_NHHMBRNUM>
-<NWRM_WOMANNAME>Srp11</NWRM_WOMANNAME>
-<NWRM_HUSBANDNAME>Srp11h</NWRM_HUSBANDNAME>
-<NWRM_PREVENRLL>0</NWRM_PREVENRLL>
+<TLIGOBHHID openmrs_entity="person" openmrs_entity_id="GoB HHID">7456</TLIGOBHHID>
+<TLIJIVHHID openmrs_entity="person" openmrs_entity_id="JiVitA HHID">7456</TLIJIVHHID>
+<TLIMauzaPara openmrs_entity="person_address" openmrs_entity_id="Mauza_para" openmrs_entity_parent="usual_residence">Gh</TLIMauzaPara>
+<TLINHHHGPS openmrs_entity="person_address" openmrs_entity_id="geopoint" openmrs_entity_parent="usual_residence">23.7984939 90.4034886 0.0 79.671</TLINHHHGPS>
+<TLIHOHFNAME openmrs_entity="person" openmrs_entity_id="first_name">Gopinathhh</TLIHOHFNAME>
+<TLIHOHGENDER openmrs_entity="person" openmrs_entity_id="gender">1</TLIHOHGENDER>
+<TLINHHMBRNUM openmrs_entity="concept" openmrs_entity_id="5611AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">02</TLINHHMBRNUM>
+<TLINHHMWRA openmrs_entity="concept" openmrs_entity_id="1901AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</TLINHHMWRA>
+<FDWOMFNAME>Shakila</FDWOMFNAME>
+<FDHUSNAME>Shakil</FDHUSNAME>
+<NWRM_PREVENRLL>1</NWRM_PREVENRLL>
 <NWRM_VISITED>0</NWRM_VISITED>
 <NWRM_PREVCAP>0</NWRM_PREVCAP>
 <NWRM_CHILDCAP>0</NWRM_CHILDCAP>
-<NWRM_LIVEHH>0</NWRM_LIVEHH>
-<NWRM_DIFFHH>0</NWRM_DIFFHH>
+<NWRM_LIVEHH>1</NWRM_LIVEHH>
+<NWRM_PREVHH>5639</NWRM_PREVHH>
+<NWRM_PREVMZA>Na</NWRM_PREVMZA>
+<NWRM_PREVWRK>Na</NWRM_PREVWRK>
+<NWRM_PREVLMRK>0</NWRM_PREVLMRK>
 </data>

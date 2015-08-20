@@ -2,6 +2,7 @@ package org.mpower.form;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
@@ -22,6 +23,7 @@ public class Form {
 
 		for (Field field : fields) {
 			// condition
+			System.out.println(field.name + " --)");
 			if (field.source == null)
 				field.source = this.bind_type + "." + field.name;
 
@@ -35,21 +37,30 @@ public class Form {
 				if (!list.isEmpty()) {
 				entityID = checkExistingClients(list);	
 				}*/
-				String Brn = searchInXML("/data/census/FDWOMBID");
+				String Brn = searchInXML("/data/woman/FDWOMBID");
 				List<String> list = new ArrayList<String>();
 				list.add(Brn);
 				String entityID = checkExistingClients(list);
-				System.out.println("service enityID:" + entityID);
-				/*if (entityID != null) {
-					field.value = entityID;
-					SubmissionBuilder.entityID = entityID;
-				} 
-				else {*/
-					String nodeValue = searchInXML("/data/meta/instanceID");
-					field.value = nodeValue;
-					SubmissionBuilder.entityID = nodeValue;
-					System.out.println("servis enityID:" + SubmissionBuilder.entityID);
-				//}
+				System.out.println("..service enityID: " + entityID);
+				if(entityID != null)
+				{
+					if (entityID.equalsIgnoreCase("null")) {
+						String nodeValue = searchInXML("/data/meta/instanceID");
+						System.out.println("meta/instanceID- " + nodeValue);
+						field.value = nodeValue;
+						SubmissionBuilder.entityID = nodeValue;
+						System.out.println("service enityID:" + SubmissionBuilder.entityID);
+						
+					} 
+					else {
+						field.value = entityID;
+						SubmissionBuilder.entityID = entityID;					
+					}
+				}	
+				else
+				{
+					entityID = UUID.randomUUID().toString();
+				}
 			}
 
 		}
@@ -61,18 +72,6 @@ public class Form {
 			subForm.buildSubFormFields();
 			subForm.buildSubFormInstanceFields(extractLastNode(subForm.default_bind_path));
 		}
-	}
-
-	private static String nodeNameConverter(String openSRPNodeName) {
-		String jivitaNodeName = "";
-		if ("start".equalsIgnoreCase(openSRPNodeName))
-			jivitaNodeName = "i_start_time";
-		else if ("end".equalsIgnoreCase(openSRPNodeName))
-			jivitaNodeName = "i_end_time";
-		else {
-			jivitaNodeName = openSRPNodeName;
-		}
-		return jivitaNodeName;
 	}
 
 	private static String checkExistingClients(List<String> BRN) {

@@ -1,5 +1,6 @@
 package org.mpower.form;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -10,7 +11,7 @@ public class SubFormField {
 	public String shouldLoadValue;
 	public String source;
 	public String bind;
-	public String read;
+	public String value;
 	
 	public SubFormField() {
 	
