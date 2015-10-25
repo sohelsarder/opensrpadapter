@@ -6,98 +6,79 @@
     "fields": [
       {
         "name": "id",
-        "shouldLoadValue": true,
-	"read": ""
+        "shouldLoadValue": true
       },
       {
          "name": "location_name",
-         "bind": "/model/instance/FWNewHH/location_name",
-	 "read": ""
+         "bind": "/model/instance/FWNewHH/location_name"
       },
       {
         "name": "existing_location",
-        "bind": "/model/instance/FWNewHH/existing_location",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/existing_location"
       },
       {
         "name": "today",
-        "bind": "/model/instance/FWNewHH/today",
-	"read": "/data/today"
+        "bind": "/model/instance/FWNewHH/today"
       },
       {
         "name": "start",
-        "bind": "/model/instance/FWNewHH/start",
-	"read": "/data/i_start_time"
+        "bind": "/model/instance/FWNewHH/start"
       },
       {
         "name": "end",
-        "bind": "/model/instance/FWNewHH/end",
-	"read": "/data/i_end_time"
+        "bind": "/model/instance/FWNewHH/end"
       },
       {
         "name": "FWNHREGDATE",
-        "bind": "/model/instance/FWNewHH/FWNHREGDATE",
-	"read": "/data/FDCENDATE"
+        "bind": "/model/instance/FWNewHH/FWNHREGDATE"
       },
       {
         "name": "FWGOBHHID",
-        "bind": "/model/instance/FWNewHH/FWGOBHHID",
-	"read": "/data/TLI_GOBHHID"
+        "bind": "/model/instance/FWNewHH/FWGOBHHID"
       },
       {
         "name": "FWJIVHHID",
-        "bind": "/model/instance/FWNewHH/FWJIVHHID",
-	"read": "/data/TLI_JIVHHID"
+        "bind": "/model/instance/FWNewHH/FWJIVHHID"
       },
       {
         "name": "FWNHNEARTO",
-        "bind": "/model/instance/FWNewHH/FWNHNEARTO",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/FWNHNEARTO"
       },
       {
         "name": "FWNHHHGPS",
-        "bind": "/model/instance/FWNewHH/FWNHHHGPS",
-	"read": "/data/TLI_NHHHGPS"
+        "bind": "/model/instance/FWNewHH/FWNHHHGPS"
       },
       {
         "name": "FWHOHFNAME",
-        "bind": "/model/instance/FWNewHH/FWHOHFNAME",
-	"read": "/data/TLI_HOHFNAME"
+        "bind": "/model/instance/FWNewHH/FWHOHFNAME"
       },
       {
         "name": "FWHOHLNAME",
-        "bind": "/model/instance/FWNewHH/FWHOHLNAME",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/FWHOHLNAME"
       },
       {
         "name": "FWHOHBIRTHDATE",
-        "bind": "/model/instance/FWNewHH/FWHOHBIRTHDATE",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/FWHOHBIRTHDATE"
       },
       {
         "name": "FWHOHGENDER",
-        "bind": "/model/instance/FWNewHH/FWHOHGENDER",
-	"read": "/data/TLI_HOHGENDER"
+        "bind": "/model/instance/FWNewHH/FWHOHGENDER"
       },
       {
         "name": "FWNHHMBRNUM",
-        "bind": "/model/instance/FWNewHH/FWNHHMBRNUM",
-	"read": "/data/TLI_NHHMBRNUM"
+        "bind": "/model/instance/FWNewHH/FWNHHMBRNUM"
       },
       {
         "name": "FWNHHMWRA",
-        "bind": "/model/instance/FWNewHH/FWNHHMWRA",
-	"read": "/data/TLI_NHHMWRA"
+        "bind": "/model/instance/FWNewHH/FWNHHMWRA"
       },
       {
         "name": "join_names",
-        "bind": "/model/instance/FWNewHH/join_names",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/join_names"
       },
       {
         "name": "MWRA",
-        "bind": "/model/instance/FWNewHH/MWRA",
-	"read": ""
+        "bind": "/model/instance/FWNewHH/MWRA"
       }
     ],
     "sub_forms": [
@@ -108,97 +89,79 @@
          "fields": [
           {
             "name": "id",
-            "shouldLoadValue": true,
+            "shouldLoadValue": true
           },
           {
             "name": "relationalid",
-            "shouldLoadValue": true,
-	"read": ""
+            "shouldLoadValue": true
           },
           {
             "name": "WomanREGDATE",
-            "bind": "/model/instance/FWNewHH/woman/REGDATE",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/REGDATE"
           },
           {
             "name": "GOBHHID",
-            "bind": "/model/instance/FWNewHH/woman/GOBHHID",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/GOBHHID"
           },
           {
             "name": "JiVitAHHID",
-            "bind": "/model/instance/FWNewHH/woman/JiVitAHHID",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/JiVitAHHID"
           },
           {
             "name": "FWWOMFNAME",
-            "bind": "/model/instance/FWNewHH/woman/FWWOMFNAME",
-	    "read": "/data/NWRM_WOMANNAME"
+            "bind": "/model/instance/FWNewHH/woman/FWWOMFNAME"
           },
           {
             "name": "FWWOMLNAME",
-            "bind": "/model/instance/FWNewHH/woman/FWWOMLNAME",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/FWWOMLNAME"
           },
           {
             "name": "FWWOMNID",
-            "bind": "/model/instance/FWNewHH/woman/FWWOMNID",
-	    "read": "/data/census/FDWOMNID"
+            "bind": "/model/instance/FWNewHH/woman/FWWOMNID"
           },
           {
             "name": "FWWOMBID",
-            "bind": "/model/instance/FWNewHH/woman/FWWOMBID",
-	    "read": "/data/census/FDWOMBID"
+            "bind": "/model/instance/FWNewHH/woman/FWWOMBID"
           },
           {
             "name": "FWHUSNAME",
-            "bind": "/model/instance/FWNewHH/woman/FWHUSNAME",
-	    "read": "/data/NWRM_HUSBANDNAME"
+            "bind": "/model/instance/FWNewHH/woman/FWHUSNAME"
           },
           {
             "name": "FWBIRTHDATE",
-            "bind": "/model/instance/FWNewHH/woman/FWBIRTHDATE",
-	    "read": "/data/census/FDBIRTHDATE"
+            "bind": "/model/instance/FWNewHH/woman/FWBIRTHDATE"
           },
           {
             "name": "FWGENDER",
-            "bind": "/model/instance/FWNewHH/woman/FWGENDER",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/FWGENDER"
           },
           {
             "name": "FWWOMAGE",
-            "bind": "/model/instance/FWNewHH/woman/FWWOMAGE",
-	    "read": "/data/census/FDWOMAGE"
+            "bind": "/model/instance/FWNewHH/woman/FWWOMAGE"
           },
           {
             "name": "display_age",
-            "bind": "/model/instance/FWNewHH/woman/display_age",
-	"read": ""
+            "bind": "/model/instance/FWNewHH/woman/display_age"
           },
           {
             "name": "FWNHWOMSTRMEN",
-            "bind": "/model/instance/FWNewHH/woman/FWNHWOMSTRMEN",
-	    "read": "/data/census/FDCWOMSTRMEN"
+            "bind": "/model/instance/FWNewHH/woman/FWNHWOMSTRMEN"
           },
           {
             "name": "FWNHWOMHUSALV",
-            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSALV",
-	    "read": "/data/census/FDCWOMHUSALV"
+            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSALV"
           },
           {
             "name": "FWNHWOMHUSLIV",
-            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSLIV",
-	    "read": "/data/census/FDCWOMHUSLIV"
+            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSLIV"
           },
           {
             "name": "FWNHWOMHUSSTR",
-            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSSTR",
-	    "read": "/data/census/FDCWOMHUSSTR"
+            "bind": "/model/instance/FWNewHH/woman/FWNHWOMHUSSTR"
           },
           {
             "name": "FWELIGIBLE",
-            "bind": "/model/instance/FWNewHH/woman/FWELIGIBLE",
-	    "read": "/data/FDELIGIBLE"
+            "bind": "/model/instance/FWNewHH/woman/FWELIGIBLE"
           }
         ]
       }

@@ -5,12 +5,14 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.mpower.form.XMLData;
 import org.mpower.form.SubmissionBuilder;
@@ -65,9 +68,10 @@ public class ServiceController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		String entityID = "";
 		try {
 			XMLData.setXmlDocument(builder.parse(fileIS));
-			SubmissionBuilder.buildFormSubmission();
+			entityID = SubmissionBuilder.buildFormSubmission(name);			
 		} catch (SAXException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -75,8 +79,8 @@ public class ServiceController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-    	
-    	return "{success : true}";
+
+    	return "{entityID :" + entityID + "}";
     } 
 
 }

@@ -1,6 +1,7 @@
 package org.mpower.form;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,65 +13,53 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Form {
-	public String bind_type;
-	public String default_bind_path;
-	private static final String SUBMISSION_BRNID = "http://192.168.21.218:9979/entity-id?brn-id=";
-	public List<Field> fields = new ArrayList<Field>();
-	public List<SubForm> sub_forms = new ArrayList<SubForm>();
+import com.google.gson.annotations.Expose;
 
-	public void buildFields() {
+public class Form {
+	@Expose public String bind_type;
+	@Expose public String default_bind_path;
+	@Expose private static final String SUBMISSION_BRNID = "http://192.168.21.218:9979/entity-id?brn-id=";
+	@Expose public List<Field> fields = new ArrayList<Field>();
+	@Expose public List<SubForm> sub_forms = new ArrayList<SubForm>();
+
+	public void buildFields(HashMap<String, String> mapper) {
 
 		for (Field field : fields) {
 			// condition
-			System.out.println(field.name + " --)");
-			if (field.source == null)
-				field.source = this.bind_type + "." + field.name;
-
+			//System.out.println(field.name + " --)");
 			if (field.bind != null) {
-				String nodeValue = searchInXML(field.read);
-				field.value = nodeValue;
-			} else {
-				//String entityID = checkExistingClients(getBRNList("/data/woman/FWWOMBID"));
-				/*List<String> list = buildFormInstanceFields("/data/census/FDWOMBID");
-				String entityID = null;
-				if (!list.isEmpty()) {
-				entityID = checkExistingClients(list);	
-				}*/
-				String Brn = searchInXML("/data/woman/FDWOMBID");
-				List<String> list = new ArrayList<String>();
-				list.add(Brn);
-				String entityID = checkExistingClients(list);
-				System.out.println("..service enityID: " + entityID);
-				if(entityID != null)
-				{
-					if (entityID.equalsIgnoreCase("null")) {
-						String nodeValue = searchInXML("/data/meta/instanceID");
-						System.out.println("meta/instanceID- " + nodeValue);
-						field.value = nodeValue;
-						SubmissionBuilder.entityID = nodeValue;
-						System.out.println("service enityID:" + SubmissionBuilder.entityID);
-						
-					} 
-					else {
-						field.value = entityID;
-						SubmissionBuilder.entityID = entityID;					
-					}
-				}	
+				field.source = this.bind_type + "." + field.name;
+				field.value = searchInXML(mapper.get(field.name));
+				System.out.println( "not null bind- " + field.name );
+			} 
+			else 
+			{
+				if(mapper.get("entityID").startsWith("/")){
+					SubmissionBuilder.entityID = searchInXML(mapper.get("entityID")) ;
+					System.out.println( "inside null bind entityID: " + SubmissionBuilder.entityID );
+					field.source = this.bind_type + "." + field.name;
+					field.value = SubmissionBuilder.entityID;
+					mapper.remove("entityID");
+					mapper.put("entityID", SubmissionBuilder.entityID);
+				}
 				else
 				{
-					entityID = UUID.randomUUID().toString();
-				}
+					SubmissionBuilder.entityID = mapper.get("entityID");
+					System.out.println( "inside null bind else entityID: " + SubmissionBuilder.entityID + " -- " + mapper.get("entityID"));
+					field.source = this.bind_type + "." + field.name;
+					field.value = SubmissionBuilder.entityID;
+				}				
 			}
 
 		}
 
 	}
 
-	public void buildSubForm() {
+	public void buildSubForm(HashMap<String, String> mapper) {
 		for (SubForm subForm : sub_forms) {
 			subForm.buildSubFormFields();
-			subForm.buildSubFormInstanceFields(extractLastNode(subForm.default_bind_path));
+			//subForm.buildSubFormInstanceFields(extractLastNode(subForm.default_bind_path));
+			subForm.buildSubFormInstanceFields(mapper.get(subForm.name+"_default_bind_path"), mapper);
 		}
 	}
 
@@ -105,8 +94,7 @@ public class Form {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		System.out.println("Finding nodePath: " + nodePath + " ,nodeValue: "
-				+ nodeValue);
+		//System.out.println("Finding nodePath: " + nodePath + " ,nodeValue: " + nodeValue);
 		return nodeValue;
 
 	}

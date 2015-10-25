@@ -1,13 +1,17 @@
 package org.mpower.form;
 
+import java.util.HashMap;
+
+import com.google.gson.annotations.Expose;
+
 public class FormInstance {
 	
-	public String form_data_definition_version;
-	public Form form;
+	@Expose public String form_data_definition_version;
+	@Expose public Form form;
 	
-	public void buildFormInstance() {
-		form.buildFields();
-		form.buildSubForm();
+	public void buildFormInstance(HashMap<String, String> mapper) {
+		form.buildFields(mapper);
+		form.buildSubForm(mapper);
 	}
 
 	public FormInstance() {
