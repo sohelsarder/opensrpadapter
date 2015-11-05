@@ -30,16 +30,16 @@ import com.google.gson.GsonBuilder;
 public class SubmissionBuilder {
 	private static final String FORMS_DIR = "/home/cyrus/project/opensrpadapter/Forms/";
 	private static final String OPENSRP_BASE_URL = "http://192.168.21.218:9979/";
-	private static final String SUBMISSION_URL = "http://192.168.21.26:9979/form-submissions/";
-	private static final String LOCATION_URL = "http://192.168.21.26:9979/user-location?location-name=";
+	private static final String SUBMISSION_URL = "http://192.168.21.218:9979/form-submissions/";
+	private static final String LOCATION_URL = "http://192.168.21.218:9979/user-location?location-name=";
 	private static final String OPENSRP_USER = "sohel";
 	private static final String OPENSRP_PWD = "Sohel@123";
 	private static FormSubmission formSubmission;
 	private static FormInstance formInstance;
 	private static HTTPAgent httpagent;
 	protected static String entityID = "";
-	private static HashMap<String, String> variableMapperForForm = new HashMap<String, String>();
-
+	protected static HashMap<String, String> variableMapperForForm = new HashMap<String, String>();
+    
 	public static String buildFormSubmission(String formName) {
 		variableMapper(formName);
 		if(!variableMapperForForm.containsKey("entityID")){
@@ -79,7 +79,7 @@ public class SubmissionBuilder {
 		try {
 			// read from file, convert it to FormSubmission class
 			formInstance = mapper.readValue(new File(FORMS_DIR + formName + "_read.json"), FormInstance.class);
-			formInstance.buildFormInstance(variableMapperForForm);			
+			formInstance.buildFormInstance();		
 			mapper.writeValue(new File(FORMS_DIR + formName + "_write.json"), formInstance);
 
 		} catch (JsonGenerationException e) {
@@ -97,27 +97,27 @@ public class SubmissionBuilder {
 		String jsonPayload = mapToFormSubmissionDTO(formName);
 		System.out.println("json from xml-- " + jsonPayload);
 		httpagent = new HTTPAgent();
-		//System.out.println("Submission Status: " + httpagent.post(SUBMISSION_URL, jsonPayload).isFailure());
-		System.out.println("submission to opensrp deactivated.");
+		System.out.println("Submission Failure: " + httpagent.post(SUBMISSION_URL, jsonPayload).isFailure());
+		//System.out.println("submission to opensrp deactivated.");
 		//System.out.println("json is prepared but not posted yet.");
 	}
 	
 	private static String getAnmID (String locationName){
 		HTTPAgent httpAgent = new HTTPAgent();
 		System.out.println("Anm location name:" + locationName );
-		return httpAgent.fetch(LOCATION_URL + locationName).payload();
-		//return "opensrp";
+		//return httpAgent.fetch(LOCATION_URL + locationName).payload();
+		return "opensrp";
 	}
 
 	private static String mapToFormSubmissionDTO(String formName) {
 		//List<FormSubmission> formSubmissions = new ArrayList<FormSubmission>();
 		List<org.ei.drishti.dto.form.FormSubmissionDTO> formSubmissions = new ArrayList<org.ei.drishti.dto.form.FormSubmissionDTO>();
 		String instanceID = UUID.randomUUID().toString();
-		String formInstance = getFormInstance(formName);
+		String formInstanceString = getFormInstance(formName);
 		formSubmissions.add(new org.ei.drishti.dto.form.FormSubmissionDTO(
 				getAnmID(searchInXML("/data/MauzaparaName")).replaceAll("^\"|\"$", ""), instanceID, SubmissionBuilder.entityID,
-				formName, formInstance,
-				"1435819226470", "9"));
+				formName, formInstanceString, 
+				"1446376434966", formInstance.form_data_definition_version));
 		/*formSubmissions.add(new FormSubmission(	getAnmID(searchInXML("/data/woman/MauzaparaName")).replaceAll("^\"|\"$", ""), 
 				instanceID, "new_household_registration", entityID, "1435819226470", "9",
 				formInstance));*/

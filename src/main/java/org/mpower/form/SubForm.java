@@ -27,7 +27,7 @@ public class SubForm {
 	public void buildSubFormFields() {
 
 		for (SubFormField field : fields) {
-			System.out.println(field.name + " -subFormField-)");			
+			System.out.println(field.name + " -subFormField-- ");			
 			field.source = this.bind_type + "." + field.name;
 		}
 	}
@@ -46,7 +46,8 @@ public class SubForm {
 
 	}
 	
-	public void buildSubFormInstanceFields(String subFormDefaultBindPath, HashMap<String, String> mapper) {		
+	public void buildSubFormInstanceFields() {
+		String subFormDefaultBindPath = SubmissionBuilder.variableMapperForForm.get(this.name+"_default_bind_path");
 		boolean addCommonFields = false;
 		try {
 			Document xmlDocument = XMLData.getXmlDocument();
@@ -64,28 +65,28 @@ public class SubForm {
 					
 					System.out.println(currentNode.getChildNodes().getLength() + " -?- " + currentNode.getNodeName());
 					
-					if(currentNode.getNodeType() == Node.ELEMENT_NODE && mapper.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()) != null){
-						if(mapper.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()).equalsIgnoreCase("groupTag")){
+					if(currentNode.getNodeType() == Node.ELEMENT_NODE && SubmissionBuilder.variableMapperForForm.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()) != null){
+						if(SubmissionBuilder.variableMapperForForm.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()).equalsIgnoreCase("groupTag")){
 							NodeList groupTagChildNodeList = currentNode.getChildNodes();
 							for (int k = 0; k < groupTagChildNodeList.getLength(); k++) {
 								Node innerNode = groupTagChildNodeList.item(k);
 								String path = subFormDefaultBindPath+"/"+ currentNode.getNodeName()+"/"+innerNode.getNodeName();
 								
-								if(innerNode.getNodeType() == Node.ELEMENT_NODE && mapper.get(path) != null){
-									System.out.println(path + " --*****-- " + mapper.get(path));
-									hm.put(mapper.get(path), innerNode.getTextContent().trim());
+								if(innerNode.getNodeType() == Node.ELEMENT_NODE && SubmissionBuilder.variableMapperForForm.get(path) != null){
+									System.out.println(path + " --*****-- " + SubmissionBuilder.variableMapperForForm.get(path));
+									hm.put(SubmissionBuilder.variableMapperForForm.get(path), innerNode.getTextContent().trim());
 								}
 							}
 						}							
 						else
-							hm.put(mapper.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()), currentNode.getTextContent());
+							hm.put(SubmissionBuilder.variableMapperForForm.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()), currentNode.getTextContent());
 					}
 					addCommonFields = true;
 				}
 				if(addCommonFields){
-					for(String key : mapper.keySet()){
+					for(String key : SubmissionBuilder.variableMapperForForm.keySet()){
 						if(key.charAt(0) == '_'){
-							hm.put(key.substring(1), searchInXML(mapper.get(key)));
+							hm.put(key.substring(1), searchInXML(SubmissionBuilder.variableMapperForForm.get(key)));
 						}
 					}
 					addCommonFields = false;

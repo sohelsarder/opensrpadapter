@@ -59,8 +59,7 @@ public class ServiceController {
         	System.out.println("Failed to upload " + name + " because the file was empty.");
         }    	
 
-		DocumentBuilderFactory builderFactory = DocumentBuilderFactory
-				.newInstance();
+		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
 			builder = builderFactory.newDocumentBuilder();

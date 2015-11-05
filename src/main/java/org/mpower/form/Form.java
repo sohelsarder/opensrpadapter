@@ -22,44 +22,43 @@ public class Form {
 	@Expose public List<Field> fields = new ArrayList<Field>();
 	@Expose public List<SubForm> sub_forms = new ArrayList<SubForm>();
 
-	public void buildFields(HashMap<String, String> mapper) {
+	public void buildFields() {
 
 		for (Field field : fields) {
 			// condition
 			//System.out.println(field.name + " --)");
 			if (field.bind != null) {
 				field.source = this.bind_type + "." + field.name;
-				field.value = searchInXML(mapper.get(field.name));
-				System.out.println( "not null bind- " + field.name );
+				field.value = searchInXML(SubmissionBuilder.variableMapperForForm.get(field.name));
+				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
 			} 
 			else 
 			{
-				if(mapper.get("entityID").startsWith("/")){
-					SubmissionBuilder.entityID = searchInXML(mapper.get("entityID")) ;
-					System.out.println( "inside null bind entityID: " + SubmissionBuilder.entityID );
+				if(SubmissionBuilder.variableMapperForForm.get("entityID").startsWith("/")){
+					SubmissionBuilder.entityID = searchInXML(SubmissionBuilder.variableMapperForForm.get("entityID")) ;
 					field.source = this.bind_type + "." + field.name;
 					field.value = SubmissionBuilder.entityID;
-					mapper.remove("entityID");
-					mapper.put("entityID", SubmissionBuilder.entityID);
+					SubmissionBuilder.variableMapperForForm.remove("entityID");
+					SubmissionBuilder.variableMapperForForm.put("entityID", SubmissionBuilder.entityID);
 				}
 				else
 				{
-					SubmissionBuilder.entityID = mapper.get("entityID");
-					System.out.println( "inside null bind else entityID: " + SubmissionBuilder.entityID + " -- " + mapper.get("entityID"));
+					SubmissionBuilder.entityID = SubmissionBuilder.variableMapperForForm.get("entityID");
 					field.source = this.bind_type + "." + field.name;
 					field.value = SubmissionBuilder.entityID;
 				}				
+				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
 			}
 
 		}
 
 	}
 
-	public void buildSubForm(HashMap<String, String> mapper) {
+	public void buildSubForm() {
 		for (SubForm subForm : sub_forms) {
 			subForm.buildSubFormFields();
 			//subForm.buildSubFormInstanceFields(extractLastNode(subForm.default_bind_path));
-			subForm.buildSubFormInstanceFields(mapper.get(subForm.name+"_default_bind_path"), mapper);
+			subForm.buildSubFormInstanceFields();
 		}
 	}
 
