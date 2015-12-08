@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data encounter_type="Pregnancy Surveillance and Registration" id="22">
+<today>2015-11-05</today>
+<i_start_time>2015-11-05T19:06:53.662+06</i_start_time>
+<i_end_time>2015-11-05T19:07:45.196+06</i_end_time>
+<FDPSRDATE openmrs_entity="concept" openmrs_entity_id="160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2015-11-05</FDPSRDATE>
+<FDPSRSTS openmrs_entity="concept" openmrs_entity_id="161641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">01</FDPSRSTS>
+<psrf_met>
+<FDPSRLMP openmrs_entity="concept" openmrs_entity_id="1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2015-09-05</FDPSRLMP>
+<FDPSRPREGSTS openmrs_entity="concept" openmrs_entity_id="162942AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRPREGSTS>
+<FDPSRCONSENT>1</FDPSRCONSENT>
+<FDPSRCONSENT2>1</FDPSRCONSENT2>
+<FDPSRCONSENTPIC>1446728828712.jpg</FDPSRCONSENTPIC>
+<display_pregnote/>
+<psrf_pregnant>
+<FDPSRWOMPREGWTD openmrs_entity="concept" openmrs_entity_id="163085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRWOMPREGWTD>
+<FDPSRHUSPREGWTD openmrs_entity_id="163086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRHUSPREGWTD>
+<FDPSRPREVPREG openmrs_entity_id="162970AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRPREVPREG>
+<risk_group openmrs_entity="concept" openmrs_entity_id="160079AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+<yn_dk_label/>
+<FDPSRANM openmrs_entity="concept" openmrs_entity_id="161544AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRANM>
+<FDPSRHBP openmrs_entity="concept" openmrs_entity_id="156639AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">0</FDPSRHBP>
+<FDPSRDBT openmrs_entity="concept" openmrs_entity_id="119481AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRDBT>
+<FDPSRTHY openmrs_entity="concept">9</FDPSRTHY>
+</risk_group>
+<FDPSRVDGMEM openmrs_entity="concept" openmrs_entity_id="162956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRVDGMEM>
+<FDPSRWOMEDU openmrs_entity="concept" openmrs_entity_id="1712AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">99</FDPSRWOMEDU>
+<FDPSRHHLAT openmrs_entity="concept" openmrs_entity_id="159741AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">9</FDPSRHHLAT>
+<FDPSRHHRICE openmrs_entity="concept" openmrs_entity_id="162962AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">99</FDPSRHHRICE>
+<FDPSRPHONE openmrs_entity="concept" openmrs_entity_id="163089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDPSRPHONE>
+<FDPSRPHONENUM openmrs_entity="concept" openmrs_entity_id="159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">01856654225</FDPSRPHONENUM>
+<FDPSRMUAC openmrs_entity="concept" openmrs_entity_id="1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">99.0</FDPSRMUAC>
+</psrf_pregnant>
+</psrf_met>
+<FDVG openmrs_entity="concept" openmrs_entity_id="163090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDVG>
+<FDHRP openmrs_entity="concept" openmrs_entity_id="163093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">0</FDHRP>
+<FDHR_PSR openmrs_entity="concept" openmrs_entity_id="163091AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2</FDHR_PSR>
+<FDFLAGVALUE openmrs_entity="concept" openmrs_entity_id="">3</FDFLAGVALUE>
+<FDSORTVALUE openmrs_entity="concept" openmrs_entity_id="">3</FDSORTVALUE>
+<meta>
+<instanceID>uuid:6f8ca3e2-29db-4d10-aa4a-0059331b2895</instanceID>
+</meta>
+<FDNHREGDATE openmrs_entity="concept" openmrs_entity_id="160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">2015-11-05</FDNHREGDATE>
+<FDCENCONSENT>1</FDCENCONSENT>
+<FDCENCONSENT2>1</FDCENCONSENT2>
+<FDCENCONSENTPIC>1446723026147.jpg</FDCENCONSENTPIC>
+<FDCENSTAT openmrs_entity="concept" openmrs_entity_id="163088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDCENSTAT>
+<woman openmrs_entity="person" openmrs_entity_id="Census and New Woman Registration">
+<FDNHWOMSTRMEN openmrs_entity="concept" openmrs_entity_id="163006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">0</FDNHWOMSTRMEN>
+<FDNHWOMHUSLIV openmrs_entity="concept" openmrs_entity_id="162994AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDNHWOMHUSLIV>
+<FDNHWOMHUSSTR openmrs_entity="concept" openmrs_entity_id="162959AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">9</FDNHWOMHUSSTR>
+<FDELIGIBLE openmrs_entity="concept" openmrs_entity_id="162699AAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDELIGIBLE>
+<eligible>
+<note/>
+<FDWOMANYID openmrs_entity="concept" openmrs_entity_id="163087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1 2</FDWOMANYID>
+<FDWOMNID openmrs_entity_id="NID">1234567890123</FDWOMNID>
+<FDWOMNID2 openmrs_entity="person_identifier" openmrs_entity_id="NID">1234567890123</FDWOMNID2>
+<FDWOMBID openmrs_entity_id="Birth Registration ID">12345608971234567</FDWOMBID>
+<FDWOMBID2 openmrs_entity="person_identifier" openmrs_entity_id="Birth Registration ID">12345608971234567</FDWOMBID2>
+</eligible>
+<mobile>
+<FDCENOWNMOB>1</FDCENOWNMOB>
+<FDCENMOBCNTRL>1</FDCENMOBCNTRL>
+<FDCENMOBWRKING>1</FDCENMOBWRKING>
+<FDCENAVLBALANCE>2</FDCENAVLBALANCE>
+<FDCENREADSMS>1</FDCENREADSMS>
+<FDCENSENDSMS>1</FDCENSENDSMS>
+<FDCENMONAVGEXP>2</FDCENMONAVGEXP>
+</mobile>
+<id>4aebd9c9-1cff-4218-b22e-e754997bbd36</id>
+<FWGENDER>2</FWGENDER>
+</woman>
+<country>BANGLADESH</country>
+<division>RANGPUR</division>
+<district>GAIBANDHA</district>
+<upazila>24</upazila>
+<union>65</union>
+<ward>1</ward>
+<unit>1</unit>
+<mauza_para>1</mauza_para>
+<TLIGOBHHID openmrs_entity="person" openmrs_entity_id="GoB HHID">9999</TLIGOBHHID>
+<TLIJIVHHID openmrs_entity="person" openmrs_entity_id="JiVitA HHID">1326</TLIJIVHHID>
+<TLIHOHFNAME openmrs_entity="person" openmrs_entity_id="first_name">Vfjiug</TLIHOHFNAME>
+<TLIHOHGENDER openmrs_entity="person" openmrs_entity_id="gender">2</TLIHOHGENDER>
+<TLINHHMBRNUM openmrs_entity="concept" openmrs_entity_id="5611AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">99</TLINHHMBRNUM>
+<FDWOMFNAME openmrs_entity="person" openmrs_entity_id="first_name">Nov4</FDWOMFNAME>
+<FDHUSNAME openmrs_entity="concept" openmrs_entity_id="161135AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Nov4h</FDHUSNAME>
+<FDBIRTHDATE openmrs_entity="person" openmrs_entity_id="birthdate">1990-11-04</FDBIRTHDATE>
+<FDWOMAGE>25</FDWOMAGE>
+<FD_PREVENRLL>9</FD_PREVENRLL>
+<FD_VISITED>9</FD_VISITED>
+<FD_PREVCAP>9</FD_PREVCAP>
+<FD_CHILDCAP>9</FD_CHILDCAP>
+<FD_MOBILE>9</FD_MOBILE>
+<FD_LIVEHH>1</FD_LIVEHH>
+<MWRA>12</MWRA>
+<MauzaparaName>Kuptala-para2</MauzaparaName>
+<ELCO>1</ELCO>
+<user_type>FD</user_type>
+<external_user_ID>1234</external_user_ID>
+<entityID>1af1ca06-59f8-4651-9ae2-39e35aaf33fb</entityID>
+</data>
