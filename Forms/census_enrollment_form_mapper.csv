@@ -8,10 +8,19 @@ existing_FWUNION, /data/union
 existing_FWWARD, /data/ward
 existing_FWSUBUNIT, /data/unit
 existing_FWMAUZA_PARA, /data/mauza_para
+FWCOUNTRY, /data/country
+FWDIVISION, /data/division
+FWDISTRICT, /data/district
+FWUPAZILLA, /data/upazila
+FWUNION, /data/union
+FWWARD, /data/ward
+FWSUBUNIT, /data/unit
+FWMAUZA_PARA, /data/mauza_para
 today, /data/today
 start, /data/i_start_time
 end, /data/i_end_time
-FWCENDATE, /data/FDNHREGDATE
+form_name, /data/form_name
+FWCENDATE, /data/today
 FWGOBHHID, /data/FDGOBHHID
 FWJIVHHID, /data/FDJIVHHID
 FWNHHHGPS, /data/FDNHHHGPS
@@ -19,6 +28,8 @@ FWCENSTAT, /data/FDCENSTAT
 new_mwra, /data/MWRA
 existing_MWRA, /data/MWRA
 ELCO, /data/ELCO
+new_ELCO, /data/new_ELCO
+existing_ELCO, /data/existing_ELCO
 user_type, /data/user_type
 external_user_ID, /data/external_user_ID
 elco_registration_default_bind_path, woman
@@ -27,9 +38,9 @@ woman/FDNHWOMSTRMEN, FWNHWOMSTRMEN
 woman/FDNHWOMHUSLIV, FWNHWOMHUSLIV
 woman/FDNHWOMHUSALV, FWNHWOMHUSALV
 woman/FDNHWOMHUSSTR, FWNHWOMHUSSTR
-woman/FDELIGIBLE, FWELIGIBLE
+woman/FWELIGIBLE2, FWELIGIBLE2
 woman/FDWOMLNAME, FWWOMLNAME
-woman/FWGENDER, FWGENDER 
+woman/FDGENDER, FWGENDER 
 woman/eligible, groupTag
 woman/eligible/FDWOMANYID, FWWOMANYID
 woman/eligible/FDWOMNID, FWWOMNID
@@ -53,3 +64,5 @@ _FWWOMWARD, /data/ward
 _FWWOMSUBUNIT, /data/unit
 _FWWOMMAUZA_PARA, /data/mauza_para
 _FWWOMGPS, /data/FDNHHHGPS
+_FWWOMRETYPENID_CONCEPT, /data/woman/eligible/FDWOMNID
+_FWWOMRETYPEBID_CONCEPT, /data/woman/eligible/FDWOMBID

@@ -29,9 +29,9 @@ import com.google.gson.GsonBuilder;
 
 public class SubmissionBuilder {
 	private static final String FORMS_DIR = "/home/cyrus/project/opensrpadapter/Forms/";
-	private static final String OPENSRP_BASE_URL = "http://192.168.21.218:9979/";
-	private static final String SUBMISSION_URL = "http://192.168.21.218:9979/form-submissions/";
-	private static final String LOCATION_URL = "http://192.168.21.218:9979/user-location?location-name=";
+	private static final String OPENSRP_BASE_URL = "http://192.168.21.98:9979/";
+	private static final String SUBMISSION_URL = "http://192.168.21.98:9979/form-submissions/";
+	private static final String LOCATION_URL = "http://192.168.21.98:9979/user-location?location-name=";
 	private static final String OPENSRP_USER = "sohel";
 	private static final String OPENSRP_PWD = "Sohel@123";
 	private static FormSubmission formSubmission;
