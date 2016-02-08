@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import scala.annotation.meta.getter;
-
+import org.mpower.form.SubFormField;
 import com.google.gson.annotations.Expose;
 
 public class SubForm {
