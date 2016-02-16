@@ -18,7 +18,7 @@ import com.google.gson.annotations.Expose;
 public class Form {
 	@Expose public String bind_type;
 	@Expose public String default_bind_path;
-	@Expose private static final String SUBMISSION_BRNID = "http://192.168.21.218:9979/entity-id?brn-id=";
+	@Expose private static final String SUBMISSION_BRNID = "http://localhost:9979/entity-id?brn-id=";
 	@Expose public List<Field> fields = new ArrayList<Field>();
 	@Expose public List<SubForm> sub_forms = new ArrayList<SubForm>();
 

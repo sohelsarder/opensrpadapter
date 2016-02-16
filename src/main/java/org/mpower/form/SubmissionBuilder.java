@@ -45,8 +45,8 @@ import com.google.gson.GsonBuilder;
 public class SubmissionBuilder {
 	private static final String FORMS_DIR = "forms/";
 	private static String OPENSRP_BASE_URL = "";
-	private static final String SUBMISSION_URL = "http://192.168.21.218:9979/form-submissions/";	
-	private static final String LOCATION_URL = "http://192.168.21.218:9979/user-location?location-name=";
+	private static final String SUBMISSION_URL = "http://localhost:9979/form-submissions/";	
+	private static final String LOCATION_URL = "http://localhost:9979/user-location?location-name=";
 	private static final String OPENSRP_USER = "sohel";
 	private static final String OPENSRP_PWD = "Sohel@123";
 	private static FormSubmission formSubmission;
@@ -130,6 +130,10 @@ public class SubmissionBuilder {
 		List<org.ei.drishti.dto.form.FormSubmissionDTO> formSubmissions = new ArrayList<org.ei.drishti.dto.form.FormSubmissionDTO>();
 		String instanceID = UUID.randomUUID().toString();
 		String formInstanceString = getFormInstance(formName);
+		
+		/*long number = (long) Math.floor(Math.random() * 9000000000000L) + 1000000000000L;
+		String strLong = Long.toString(number);*/
+		
 		formSubmissions.add(new org.ei.drishti.dto.form.FormSubmissionDTO(
 				searchInXML("/data/fwaName").replaceAll("^\"|\"$", ""), instanceID, SubmissionBuilder.entityID,
 				formName, formInstanceString, 

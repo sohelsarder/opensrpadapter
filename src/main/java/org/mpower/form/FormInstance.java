@@ -10,6 +10,7 @@ public class FormInstance {
 	@Expose public Form form;
 	
 	public void buildFormInstance() {
+		System.out.println("Received form instance from mJivita+ :   " + form.toString());
 		form.buildFields();
 		form.buildSubForm();		
 	}
@@ -17,6 +18,5 @@ public class FormInstance {
 	public FormInstance() {
 		super();
 	}
-	
-	
+		
 }
