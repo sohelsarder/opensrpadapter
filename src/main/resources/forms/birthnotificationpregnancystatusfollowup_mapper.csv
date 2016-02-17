@@ -1,0 +1,22 @@
+
+existing_gobhhid, Beneficiary.gobHHID
+existing_jivhhid, Beneficiary.household_id Household.householdID
+existing_wom_bid, Beneficiary.bID
+existing_wom_nid, Beneficiary.nID
+existing_first_name, Beneficiary.name
+existing_husname, Beneficiary.husbandName
+existing_psrlmp, Beneficiary.lmp
+existing_location, Beneficiary.mauza
+FWBNFDATE, FDBNFDATE
+FWCONFIRMATION, N/A
+FWGESTATIONALAGE, FDGESTATIONALAGE
+FWEDD, Beneficiary.edd
+FWBNFSTS, FDBNFSTS
+FWDISPLAYTEXT1, FDDISPLAYTEXT1
+outcome_occured, outcome_occured
+FWBNFWOMVITSTS, FDBNFWOMVITSTS
+FWBNFDTOO, FDBNFDTOO
+FWBNFLB, FDBNFLB
+FWBNFCHLDVITSTS, FDBNFCHLDVITSTS
+FWBNFGEN, FDBNFGEN
+FWBNFSMSRSN, N/A
