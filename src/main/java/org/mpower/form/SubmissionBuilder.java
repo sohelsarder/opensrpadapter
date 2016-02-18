@@ -58,7 +58,7 @@ public class SubmissionBuilder {
 	public static String buildFormSubmission(String formName) {
 		System.out.println("Base URL Load from Properties Class : " + OPENSRP_BASE_URL);
 		String formRename = formName;
-		if(formName.equalsIgnoreCase("pvf_form")){
+		if(formName.equalsIgnoreCase("PregnancyVerificationForm")){
 			System.out.println("Received a pvf_form");
 			formRename = "birthnotificationpregnancystatusfollowup";
 			variableMapperForForm.put("formName", "birthnotificationpregnancystatusfollowup");
