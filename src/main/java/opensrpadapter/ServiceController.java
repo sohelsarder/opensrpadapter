@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import org.apache.commons.io.IOUtils;
 import org.mpower.form.XMLData;
 import org.mpower.form.SubmissionBuilder;
 
@@ -49,14 +50,16 @@ public class ServiceController {
                 BufferedOutputStream stream = 
                         new BufferedOutputStream(new FileOutputStream(new File(name)));
                 fileIS = new ByteArrayInputStream(bytes);
+                String myString = IOUtils.toString(fileIS, "UTF-8");
                 stream.write(bytes);
                 stream.close();
-                System.out.println("Received a submission successfully file name: " + name + "!");                          
+                System.out.println("Received a submission successfully file name: " + name);   
+                System.out.println("Received a submission successfully file data: " + myString);   
             } catch (Exception e) {
             	System.out.println("Failed to upload " + name + " => " + e.getMessage());
             }
         } else {
-        	System.out.println("Failed to upload " + name + " because the file was empty.");
+        	System.out.println("Failed to upload : " + name + ", because the file was empty.");
         }    	
 
 		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
