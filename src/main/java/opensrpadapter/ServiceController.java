@@ -43,14 +43,15 @@ public class ServiceController {
     @Produces("application/json")
     public @ResponseBody String dataXMLReceiver(@RequestParam("name") String name,
             @RequestParam("file") MultipartFile file) {
-    	ByteArrayInputStream fileIS = null;
+    	ByteArrayInputStream fileIS = null, fileLog = null;
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream = 
                         new BufferedOutputStream(new FileOutputStream(new File(name)));
                 fileIS = new ByteArrayInputStream(bytes);
-                String myString = IOUtils.toString(fileIS, "UTF-8");
+                fileLog =  new ByteArrayInputStream(bytes);
+                String myString = IOUtils.toString(fileLog, "UTF-8");
                 stream.write(bytes);
                 stream.close();
                 System.out.println("Received a submission successfully file name: " + name);   
