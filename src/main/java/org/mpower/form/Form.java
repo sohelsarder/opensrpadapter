@@ -28,12 +28,13 @@ public class Form {
 			// condition
 			//System.out.println(field.name + " --)");
 			if (field.bind != null) {
-				field.source = this.bind_type + "." + field.name;
+				field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 				field.value = searchInXML(SubmissionBuilder.variableMapperForForm.get(field.name));
 				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
 			} 
 			else 
 			{
+				
 				if(SubmissionBuilder.variableMapperForForm.get("entityID").startsWith("/")){
 					SubmissionBuilder.entityID = searchInXML(SubmissionBuilder.variableMapperForForm.get("entityID")) ;
 					field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
@@ -41,13 +42,12 @@ public class Form {
 					SubmissionBuilder.variableMapperForForm.remove("entityID");
 					SubmissionBuilder.variableMapperForForm.put("entityID", SubmissionBuilder.entityID);
 				}
-				else
-				{
+				else {
 					SubmissionBuilder.entityID = SubmissionBuilder.variableMapperForForm.get("entityID");
 					field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 					field.value = SubmissionBuilder.entityID;
 				}				
-				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
+
 			}
 
 		}
