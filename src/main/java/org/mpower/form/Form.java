@@ -36,7 +36,7 @@ public class Form {
 			{
 				if(SubmissionBuilder.variableMapperForForm.get("entityID").startsWith("/")){
 					SubmissionBuilder.entityID = searchInXML(SubmissionBuilder.variableMapperForForm.get("entityID")) ;
-					field.source = this.bind_type + "." + field.name;
+					field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 					field.value = SubmissionBuilder.entityID;
 					SubmissionBuilder.variableMapperForForm.remove("entityID");
 					SubmissionBuilder.variableMapperForForm.put("entityID", SubmissionBuilder.entityID);
@@ -44,7 +44,7 @@ public class Form {
 				else
 				{
 					SubmissionBuilder.entityID = SubmissionBuilder.variableMapperForForm.get("entityID");
-					field.source = this.bind_type + "." + field.name;
+					field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 					field.value = SubmissionBuilder.entityID;
 				}				
 				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
