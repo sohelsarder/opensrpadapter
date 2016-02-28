@@ -61,7 +61,7 @@ public class SubmissionBuilder {
 		if(formName.equalsIgnoreCase("pvf_form")){
 			System.out.println("Received a Birth_notification_pregnancy_status_followup form");
 			formRename = "birthnotificationpregnancystatusfollowup";
-			variableMapperForForm.put("formName", "birthnotificationpregnancystatusfollowup");
+			//variableMapperForForm.put("formName", "birthnotificationpregnancystatusfollowup");
 		}
 		variableMapper(formRename);
 		if(!variableMapperForForm.containsKey("entityID")){
