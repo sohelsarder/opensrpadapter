@@ -1,7 +1,7 @@
 entityID, /data/entityID
 FWWOMMAUZA_PARA, /data/mauza_para
-GOBHHID, /data/TLIGOBHHID
-JiVitAHHID, /data/TLIJIVHHID
+GOBHHID, /data/FDGOBHHID
+JiVitAHHID, /data/FDJIVHHID
 FWWOMFNAME, /data/FDWOMFNAME
 FWHUSNAME, /data/FDHUSNAME
 FWWOMNID, /data/woman/eligible/FDWOMNID
@@ -28,8 +28,8 @@ external_user_ID, /data/external_user_ID
 FWPSRLMP, /data/psrf_met/FDPSRLMP
 FWPSRPREGSTS, /data/psrf_met/FDPSRPREGSTS
 mother_mauza, /data/mauza_para
-mother_gobhhid, /data/TLIGOBHHID
-mother_jivhhid, /data/TLIJIVHHID
+mother_gobhhid, /data/FDGOBHHID
+mother_jivhhid, /data/FDJIVHHID
 mother_first_name, /data/FDWOMFNAME
 mother_husname, /data/FDHUSNAME
 mother_wom_nid, /data/woman/eligible/FDWOMNID
