@@ -30,7 +30,7 @@ public class Form {
 			if (field.bind != null) {
 				field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 				field.value = searchInXML(SubmissionBuilder.variableMapperForForm.get(field.name));
-				System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
+				//System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
 			} 
 			else 
 			{
@@ -71,7 +71,7 @@ public class Form {
 			listString.deleteCharAt(listString.length()-1);
 			HTTPAgent httpAgent = new HTTPAgent();
 			existingEntityID = httpAgent.fetch(SUBMISSION_BRNID + listString).payload();
-			System.out.println("brnList: " + existingEntityID);
+			//System.out.println("brnList: " + existingEntityID);
 		}
 		return existingEntityID;
 	}
