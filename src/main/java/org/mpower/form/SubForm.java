@@ -27,7 +27,7 @@ public class SubForm {
 	public void buildSubFormFields() {
 
 		for (SubFormField field : fields) {
-			System.out.println(field.name + " -subFormField-- ");			
+			//System.out.println(field.name + " -subFormField-- ");			
 			field.source = this.bind_type + "." + field.name;
 		}
 	}
@@ -53,17 +53,17 @@ public class SubForm {
 			Document xmlDocument = XMLData.getXmlDocument();
 			NodeList nodeList = xmlDocument.getElementsByTagName(subFormDefaultBindPath);
 			
-			System.out.println("buildSubFormInstanceFields - " + nodeList.getLength());
+			//System.out.println("buildSubFormInstanceFields - " + nodeList.getLength());
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				HashMap<String, String> hm = new HashMap<>();
 				
 				NodeList childNodeList = nodeList.item(i).getChildNodes();
-				System.out.println(nodeList.item(i).getNodeName() + " -has number of children- " + childNodeList.getLength());
+				//System.out.println(nodeList.item(i).getNodeName() + " -has number of children- " + childNodeList.getLength());
 				for (int j = 0; j < childNodeList.getLength(); j++) {
 					
 					Node currentNode = childNodeList.item(j);
 					
-					System.out.println(currentNode.getChildNodes().getLength() + " -?- " + currentNode.getNodeName());
+					//System.out.println(currentNode.getChildNodes().getLength() + " -?- " + currentNode.getNodeName());
 					
 					if(currentNode.getNodeType() == Node.ELEMENT_NODE && SubmissionBuilder.variableMapperForForm.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()) != null){
 						if(SubmissionBuilder.variableMapperForForm.get(subFormDefaultBindPath+"/"+ currentNode.getNodeName()).equalsIgnoreCase("groupTag")){
@@ -73,7 +73,7 @@ public class SubForm {
 								String path = subFormDefaultBindPath+"/"+ currentNode.getNodeName()+"/"+innerNode.getNodeName();
 								
 								if(innerNode.getNodeType() == Node.ELEMENT_NODE && SubmissionBuilder.variableMapperForForm.get(path) != null){
-									System.out.println(path + " --*****-- " + SubmissionBuilder.variableMapperForForm.get(path));
+									//System.out.println(path + " --*****-- " + SubmissionBuilder.variableMapperForForm.get(path));
 									hm.put(SubmissionBuilder.variableMapperForForm.get(path), innerNode.getTextContent().trim());
 								}
 							}
@@ -90,7 +90,7 @@ public class SubForm {
 						}
 					}
 					addCommonFields = false;
-					System.out.println("Common fields in instance are added.");
+					//System.out.println("Common fields in instance are added.");
 				}				
 				if(hm.size() > 0)
 					instances.add(hm);
