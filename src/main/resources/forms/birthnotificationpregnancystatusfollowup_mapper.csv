@@ -1,21 +1,27 @@
-entityID, /data/entityID
-existing_gobhhid, Beneficiary.gobHHID
-existing_jivhhid, Beneficiary.household_id
-existing_wom_bid, Beneficiary.bID
-existing_wom_nid, Beneficiary.nID
-existing_first_name, Beneficiary.name
-existing_husname, Beneficiary.husbandName
-existing_psrlmp, Beneficiary.lmp
-existing_location, Beneficiary.mauza
-FWBNFDATE, /data/FDBNFDATE
-FWGESTATIONALAGE, /data/FDGESTATIONALAGE
-FWEDD, Beneficiary.edd
-FWBNFSTS, /data/FDBNFSTS
-FWDISPLAYTEXT1, /data/FDDISPLAYTEXT1
-outcome_occured, /data/outcome_occured
-FWBNFWOMVITSTS, /data/outcome_occured/FDBNFWOMVITSTS
-FWBNFDTOO, /data/outcome_occured/FDBNFDTOO
-FWBNFLB, /data/outcome_occured/FDBNFLB
-FWBNFCHLDVITSTS, /data/outcome_occured/FDBNCHILD/FDBNFCHLDVITSTS
-FWBNFGEN, /data/outcome_occured/FDBNCHILD/FDBNFGEN
-Is_PNC, /data/Is_PNC
+entityID,/data/entityID
+relationalid,/data/entityID
+GOBHHID,/data/FDGOBHHID
+JiVitAHHID,/data/FDJIVHHID
+FWWOMBID,/data/bID
+FWWOMNID,/data/nID
+FWWOMFNAME,/data/name
+FWHUSNAME,/data/husbandName
+FWPSRLMP,/data/lmp
+today,/data/today
+start,/data/i_start_time
+end,/data/i_end_time
+user_type,/data/user_type
+external_user_ID,/data/external_user_ID
+existing_location,/data/mauza
+FWBNFDATE,/data/FDBNFDATE
+FWGESTATIONALAGE,/data/FDGESTATIONALAGE
+FWEDD,/data/edd
+FWBNFSTS,/data/FDBNFSTS
+FWDISPLAYTEXT1,/data/FDDISPLAYTEXT1
+outcome_occured,/data/outcome_occured
+FWBNFWOMVITSTS,/data/outcome_occured/FDBNFWOMVITSTS
+FWBNFDTOO,/data/outcome_occured/FDBNFDTOO
+FWBNFLB,/data/outcome_occured/FDBNFLB
+FWBNFCHLDVITSTS,/data/outcome_occured/FDBNCHILD/FDBNFCHLDVITSTS
+FWBNFGEN,/data/outcome_occured/FDBNCHILD/FDBNFGEN
+Is_PNC,/data/Is_PNC
