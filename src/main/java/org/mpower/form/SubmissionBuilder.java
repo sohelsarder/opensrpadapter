@@ -45,10 +45,8 @@ import com.google.gson.GsonBuilder;
 public class SubmissionBuilder {
 	private static final String FORMS_DIR = "forms/";
 	private static String OPENSRP_BASE_URL = "";
-	private static final String SUBMISSION_URL = "http://localhost:9979/form-submissions/";	
+	private static final String SUBMISSION_URL = "http://192.168.22.152:9979/form-submissions/";	
 	private static final String LOCATION_URL = "http://localhost:9979/user-location?location-name=";
-	private static final String OPENSRP_USER = "sohel";
-	private static final String OPENSRP_PWD = "Sohel@123";
 	private static FormSubmission formSubmission;
 	private static FormInstance formInstance;
 	private static HTTPAgent httpagent;
@@ -99,6 +97,7 @@ public class SubmissionBuilder {
 			// read from file, convert it to FormSubmission class
 			formInstance = mapper.readValue(SubmissionBuilder.class.getClassLoader().getResourceAsStream(FORMS_DIR + formName + "_read.json")
 						, FormInstance.class);
+			System.out.println("number of subforms of current " + formName + " is " + formInstance.form.sub_forms.size());
 			formInstance.buildFormInstance();		
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
@@ -120,12 +119,12 @@ public class SubmissionBuilder {
 		//System.out.println("json is prepared but not posted yet.");
 	}
 	
-	private static String getAnmID (String locationName){
+	/*private static String getAnmID (String locationName){
 		HTTPAgent httpAgent = new HTTPAgent();
 		System.out.println("Anm location name:" + locationName );
 		//return httpAgent.fetch(LOCATION_URL + locationName).payload();
 		return "opensrp";
-	}
+	}*/
 
 	private static String mapToFormSubmissionDTO(String formName) {
 		//List<FormSubmission> formSubmissions = new ArrayList<FormSubmission>();

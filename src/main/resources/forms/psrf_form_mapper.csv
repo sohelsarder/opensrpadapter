@@ -1,5 +1,5 @@
 entityID, /data/entityID
-FWWOMMAUZA_PARA, /data/mauza_para
+FWWOMMAUZA_PARA, /data/MauzaparaName
 GOBHHID, /data/FDGOBHHID
 JiVitAHHID, /data/FDJIVHHID
 FWWOMFNAME, /data/FDWOMFNAME
@@ -8,7 +8,7 @@ FWWOMNID, /data/woman/eligible/FDWOMNID
 FWWOMBID, /data/woman/eligible/FDWOMBID
 FWWOMAGE, /data/FDWOMAGE
 existing_ELCO, /data/existing_ELCO
-existing_location, /data/mauza_para
+existing_location, /data/MauzaparaName
 today, /data/today
 start, /data/i_start_time
 end, /data/i_start_time
@@ -27,7 +27,7 @@ user_type, /data/user_type
 external_user_ID, /data/external_user_ID
 FWPSRLMP, /data/psrf_met/FDPSRLMP
 FWPSRPREGSTS, /data/psrf_met/FDPSRPREGSTS
-mother_mauza, /data/mauza_para
+mother_mauza, /data/MauzaparaName
 mother_gobhhid, /data/FDGOBHHID
 mother_jivhhid, /data/FDJIVHHID
 mother_first_name, /data/FDWOMFNAME
@@ -38,7 +38,7 @@ mother_wom_age, /data/FDWOMAGE
 mother_wom_lmp, /data/psrf_met/FDPSRLMP
 FWWOMVALID, /data/psrf_met/psrf_pregnant/mother_valid
 mother_valid, /data/psrf_met/psrf_pregnant/mother_valid
-FWPSRPREGWTD, /data/psrf_met/psrf_pregnant/FWPSRPREGWTD
+FWPSRPREGWTD, /data/psrf_met/psrf_pregnant/FDPSRPREGWTD
 FWPSRHUSPREGWTD, /data/psrf_met/psrf_pregnant/FDPSRHUSPREGWTD
 FWPSREVRPREG, /data/psrf_met/psrf_pregnant/FDPSREVRPREG
 FWPSRTOTBIRTH, /data/psrf_met/psrf_pregnant/FDPSRTOTBIRTH
@@ -55,3 +55,7 @@ FWPSRHHRICE, /data/psrf_met/psrf_pregnant/FDPSRHHRICE
 FWPSRMUAC, /data/psrf_met/psrf_pregnant/FDPSRMUAC
 FWPSRPHONE, /data/psrf_met/psrf_pregnant/FDPSRPHONE
 FWPSRPHONENUM, /data/psrf_met/psrf_pregnant/FDPSRPHONENUM
+FWPSRANM, data/psrf_met/psrf_pregnant/risk_group/FDPSRANM
+FWPSRHBP, /data/psrf_met/psrf_pregnant/risk_group/FDPSRHBP
+FWPSRDBT, /data/psrf_met/psrf_pregnant/risk_group/FDPSRDBT
+FWPSRTHY, /data/psrf_met/psrf_pregnant/risk_group/FDPSRTHY

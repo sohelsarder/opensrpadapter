@@ -1,4 +1,4 @@
-location_name, /data/mauza_para
+location_name, /data/MauzaparaName
 existing_Country, /data/country
 existing_Division, /data/division
 existing_District, /data/district
@@ -6,7 +6,7 @@ existing_Upazilla, /data/upazillaName
 existing_Union, /data/unionName
 existing_Ward, /data/wardName
 existing_Subunit, /data/unitName
-existing_Mauzapara, /data/mauza_para
+existing_Mauzapara, /data/MauzaparaName
 today, /data/today
 start, /data/i_start_time
 end, /data/i_end_time
@@ -20,7 +20,7 @@ FWUPAZILLA, /data/upazillaName
 FWUNION, /data/unionName
 FWWARD, /data/wardName
 FWSUBUNIT, /data/unitName
-FWMAUZA_PARA, /data/mauza_para
+FWMAUZA_PARA, /data/MauzaparaName
 FWNHHHGPS, /data/TLINHHHGPS
 FWHOHFNAME, /data/FDHOHFNAME
 FWHOHGENDER, /data/FDHOHGENDER
@@ -32,10 +32,10 @@ user_type, /data/user_type
 external_user_ID, /data/external_user_ID
 elco_registration_default_bind_path, woman
 woman/id, id
-woman/FDNHWOMSTRMEN, FWCWOMSTRMEN
-woman/FDNHWOMHUSLIV, FWCWOMHUSLIV
-woman/FDNHWOMHUSALV, FWCWOMHUSALV
-woman/FDNHWOMHUSSTR, FWCWOMHUSSTR
+woman/FDCWOMSTRMEN, FWCWOMSTRMEN
+woman/FDCWOMHUSLIV, FWCWOMHUSLIV
+woman/FDCWOMHUSALV, FWCWOMHUSALV
+woman/FDCWOMHUSSTR, FWCWOMHUSSTR
 woman/FDWOMLNAME, FWWOMLNAME
 woman/FDELIGIBLE, FWELIGIBLE
 woman/FDELIGIBLE2, FWELIGIBLE2
@@ -63,7 +63,7 @@ _FWWOMUPAZILLA, /data/upazillaName
 _FWWOMUNION, /data/unionName
 _FWWOMWARD, /data/wardName
 _FWWOMSUBUNIT, /data/unitName
-_FWWOMMAUZA_PARA, /data/mauza_para
+_FWWOMMAUZA_PARA, /data/MauzaparaName
 _FWWOMGPS, /data/TLINHHHGPS
 _FWWOMRETYPENID_CONCEPT, /data/woman/eligible/FDWOMNID
 _FWWOMRETYPEBID_CONCEPT, /data/woman/eligible/FDWOMBID

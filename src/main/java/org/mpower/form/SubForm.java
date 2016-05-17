@@ -3,6 +3,7 @@ package org.mpower.form;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
@@ -13,7 +14,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import scala.annotation.meta.getter;
+
 import org.mpower.form.SubFormField;
+
 import com.google.gson.annotations.Expose;
 
 public class SubForm {
@@ -46,8 +49,9 @@ public class SubForm {
 
 	}
 	
-	public void buildSubFormInstanceFields() {
+	public void buildSubFormInstanceFields() {		
 		String subFormDefaultBindPath = SubmissionBuilder.variableMapperForForm.get(this.name+"_default_bind_path");
+		//System.out.println("building forminstance for subform- " + this.name + " with deafault bind path- " + subFormDefaultBindPath);
 		boolean addCommonFields = false;
 		try {
 			Document xmlDocument = XMLData.getXmlDocument();
@@ -91,7 +95,7 @@ public class SubForm {
 					}
 					addCommonFields = false;
 					//System.out.println("Common fields in instance are added.");
-				}				
+				}
 				if(hm.size() > 0)
 					instances.add(hm);
 			}

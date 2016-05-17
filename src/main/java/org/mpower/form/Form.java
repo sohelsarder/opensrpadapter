@@ -55,7 +55,9 @@ public class Form {
 	}
 
 	public void buildSubForm() {
+		//System.out.println("now subform will be built");
 		for (SubForm subForm : sub_forms) {
+			//System.out.println("for the subform- " + subForm.name);
 			subForm.buildSubFormFields();
 			//subForm.buildSubFormInstanceFields(extractLastNode(subForm.default_bind_path));
 			subForm.buildSubFormInstanceFields();
