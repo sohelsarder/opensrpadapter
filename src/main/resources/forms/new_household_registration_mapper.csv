@@ -1,4 +1,4 @@
-location_name, /data/MauzaparaName
+existing_location, /data/MauzaparaName
 existing_Country, /data/country
 existing_Division, /data/division
 existing_District, /data/district
@@ -10,6 +10,7 @@ existing_Mauzapara, /data/MauzaparaName
 today, /data/today
 start, /data/i_start_time
 end, /data/i_end_time
+form_name, /data/formName
 FWNHREGDATE, /data/today
 FWGOBHHID, /data/FDGOBHHID
 FWJIVHHID, /data/FDJIVHHID
@@ -21,7 +22,7 @@ FWUNION, /data/unionName
 FWWARD, /data/wardName
 FWSUBUNIT, /data/unitName
 FWMAUZA_PARA, /data/MauzaparaName
-FWNHHHGPS, /data/TLINHHHGPS
+FWNHHHGPS, /data/GPS
 FWHOHFNAME, /data/FDHOHFNAME
 FWHOHGENDER, /data/FDHOHGENDER
 FWHOHBIRTHDATE, /data/FDHOHBIRTHDATE
@@ -39,6 +40,7 @@ woman/FDCWOMHUSSTR, FWCWOMHUSSTR
 woman/FDWOMLNAME, FWWOMLNAME
 woman/FDELIGIBLE, FWELIGIBLE
 woman/FDELIGIBLE2, FWELIGIBLE2
+woman/FDCWOMSTER, FWCWOMSTER
 woman/FDGENDER, FWGENDER 
 woman/eligible, groupTag
 woman/eligible/FDWOMANYID, FWWOMANYID
@@ -64,6 +66,7 @@ _FWWOMUNION, /data/unionName
 _FWWOMWARD, /data/wardName
 _FWWOMSUBUNIT, /data/unitName
 _FWWOMMAUZA_PARA, /data/MauzaparaName
-_FWWOMGPS, /data/TLINHHHGPS
+_FWWOMGPS, /data/GPS
 _FWWOMRETYPENID_CONCEPT, /data/woman/eligible/FDWOMNID
 _FWWOMRETYPEBID_CONCEPT, /data/woman/eligible/FDWOMBID
+_relationalid, /data/GPS

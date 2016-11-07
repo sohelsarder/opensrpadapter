@@ -30,7 +30,7 @@ public class Form {
 			if (field.bind != null) {
 				field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
 				field.value = searchInXML(SubmissionBuilder.variableMapperForForm.get(field.name));
-				//System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value );
+				//System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value + " ---- " + SubmissionBuilder.variableMapperForForm.get(field.name));
 			} 
 			else 
 			{

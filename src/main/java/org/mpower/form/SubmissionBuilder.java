@@ -45,7 +45,7 @@ import com.google.gson.GsonBuilder;
 public class SubmissionBuilder {
 	private static final String FORMS_DIR = "forms/";
 	private static String OPENSRP_BASE_URL = "";
-	private static final String SUBMISSION_URL = "http://192.168.22.152:9979/form-submissions/";	
+	private static final String SUBMISSION_URL = "http://192.168.19.90:9979/form-submissions/";	
 	private static final String LOCATION_URL = "http://localhost:9979/user-location?location-name=";
 	private static FormSubmission formSubmission;
 	private static FormInstance formInstance;

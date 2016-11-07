@@ -22,8 +22,8 @@ import org.apache.http.protocol.HTTP;
 public class HTTPAgent {
     private final GZipEncodingHttpClient httpClient;
 
-	private static final String OPENSRP_USER = "sohel";
-	private static final String OPENSRP_PWD = "Sohel@123";
+	private static final String OPENSRP_USER = "samnur";
+	private static final String OPENSRP_PWD = "Samnur@123";
 	
 
     public HTTPAgent() {

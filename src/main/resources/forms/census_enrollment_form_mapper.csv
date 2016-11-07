@@ -13,6 +13,7 @@ FWCOUNTRY,/data/country
 FWDIVISION,/data/division
 FWDISTRICT,/data/district
 FWUPAZILLA,/data/upazillaName
+form_name,/data/formName
 FWUNION,/data/unionName
 FWWARD,/data/wardName
 FWSUBUNIT,/data/unitName
@@ -20,11 +21,10 @@ FWMAUZA_PARA,/data/MauzaparaName
 today,/data/FDNHREGDATE
 start,/data/i_start_time
 end,/data/i_end_time
-form_name,/data/form_name
 FWCENDATE,/data/today
 FWGOBHHID,/data/FDGOBHHID
 FWJIVHHID,/data/FDJIVHHID
-FWNHHHGPS,/data/FDNHHHGPS
+FWNHHHGPS,/data/GPS
 FWCENSTAT,/data/FDCENSTAT
 ELCO,/data/ELCO
 new_ELCO,/data/new_ELCO
@@ -41,6 +41,7 @@ woman/FDELIGIBLE2,FWELIGIBLE2
 woman/FDELIGIBLE,FWELIGIBLE
 woman/FDWOMLNAME,FWWOMLNAME
 woman/FDGENDER,FWGENDER
+woman/FDCWOMSTER, FWCWOMSTER
 woman/eligible,groupTag
 woman/eligible/FDWOMANYID,FWWOMANYID
 woman/eligible/FDWOMNID,FWWOMNID
@@ -65,6 +66,6 @@ _FWWOMUNION,/data/unionName
 _FWWOMWARD,/data/wardName
 _FWWOMSUBUNIT,/data/unitName
 _FWWOMMAUZA_PARA,/data/MauzaparaName
-_FWWOMGPS,/data/FDNHHHGPS
+_FWWOMGPS,/data/GPS
 _FWWOMRETYPENID_CONCEPT,/data/woman/eligible/FDWOMNID
 _FWWOMRETYPEBID_CONCEPT,/data/woman/eligible/FDWOMBID
