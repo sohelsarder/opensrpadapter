@@ -55,7 +55,7 @@ public class ServiceController {
                 stream.write(bytes);
                 stream.close();
                 System.out.println("Received a submission successfully file name: " + name);   
-              //  System.out.println("Received a submission successfully file data: " + myString);   
+                 System.out.println("Received a submission successfully file data: " + myString);
             } catch (Exception e) {
             	System.out.println("Failed to upload " + name + " => " + e.getMessage());
             }
