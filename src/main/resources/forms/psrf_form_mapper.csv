@@ -38,7 +38,7 @@ mother_wom_age, /data/FDWOMAGE
 mother_wom_lmp, /data/psrf_met/FDPSRLMP
 FWWOMVALID, /data/psrf_met/psrf_pregnant/mother_valid
 mother_valid, /data/psrf_met/psrf_pregnant/mother_valid
-FWPSRPREGWTD, /data/psrf_met/psrf_pregnant/FDPSRPREGWTD
+FWPSRPREGWTD, /data/psrf_met/psrf_pregnant/FDPSRWOMPREGWTD
 FWPSRHUSPREGWTD, /data/psrf_met/psrf_pregnant/FDPSRHUSPREGWTD
 FWPSREVRPREG, /data/psrf_met/psrf_pregnant/FDPSREVRPREG
 FWPSRTOTBIRTH, /data/psrf_met/psrf_pregnant/FDPSRTOTBIRTH
