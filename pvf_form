@@ -20,7 +20,7 @@
 <FDBNFCHLDVITSTS openmrs_entity="concept" openmrs_entity_id="159926AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">1</FDBNFCHLDVITSTS>
 <FDBNFNAMECHECK>0</FDBNFNAMECHECK>
 <FDBNFCHILDNAME>BABY GIRL</FDBNFCHILDNAME>
-<childID>6787335a-01c1-4827-a1a9-058edce8f4cd</childID>
+<childID>31f2408a-6f7f-4ef7-b921-141dc4701cbd</childID>
 </FDBNCHILD>
 <vs29_date>2017-05-23</vs29_date>
 <vs43_date>2017-06-06</vs43_date>
@@ -57,5 +57,5 @@
 <entityID>5a8e8747-ced8-46dd-bfd6-597bc2eee92f</entityID>
 <user_type>FD</user_type>
 <external_user_ID>6666</external_user_ID>
-<fwaName/>
+<fwaName>opensrp</fwaName>
 </data>

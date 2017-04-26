@@ -1,6 +1,5 @@
 package org.mpower.form;
 
-import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import org.mpower.http.HTTPAgent;
 import org.w3c.dom.Document;
@@ -35,13 +34,20 @@ public class Form {
             if (field.bind != null) {
                 field.source = field.source == null ? this.bind_type + "." + field.name : field.source;
                 field.value = searchInXML(SubmissionBuilder.variableMapperForForm.get(field.name));
-                boolean convertibleDateTimeField = field.name.equalsIgnoreCase("start") || field.name.equalsIgnoreCase("end");
-                if (convertibleDateTimeField) {
+                boolean convertibleStartAndEndDateTimeField = field.name.equalsIgnoreCase("start") || field.name.equalsIgnoreCase("end");
+                if (convertibleStartAndEndDateTimeField) {
                     String convertibleDateTimeStr = field.value;
-                    System.out.println(convertibleDateTimeStr);
                     String adaptedDateStr = this.dateTimeConverter(convertibleDateTimeStr);
                     field.value = adaptedDateStr;
-                    System.out.println(new Gson().toJson(field));
+                }
+
+                boolean convertibleBirthNotificationDateTimeField = checkIfConvertibleBirthNotificationDateTimeField(field.name);
+
+                if(convertibleBirthNotificationDateTimeField) {
+                    String convertibleDateTimeStr = field.value;
+                    String adaptedDateStr =
+                            this.convertBirthNotificationDateTimeFieldValue(convertibleDateTimeStr);
+                    field.value = adaptedDateStr;
                 }
                 //System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value + " ---- " + SubmissionBuilder.variableMapperForForm.get(field.name));
             } else {
@@ -168,4 +174,29 @@ public class Form {
         return adaptedDateStr;
     }
 
+    private boolean checkIfConvertibleBirthNotificationDateTimeField(String fieldName) {
+        String FWPSRLMP = "FWPSRLMP";
+        String FWEDD = "FWEDD";
+
+        if(fieldName.equalsIgnoreCase(FWEDD) || fieldName.equalsIgnoreCase(FWPSRLMP)) {
+            return true;
+        }
+        return false;
+    }
+
+    public String convertBirthNotificationDateTimeFieldValue(String dateTimeToConvert) {
+        SimpleDateFormat inputDateTimeFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+        SimpleDateFormat outputDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String adaptedDateStr = "";
+        try {
+            Date inputDateTime = inputDateTimeFormat.parse(dateTimeToConvert);
+            System.out.println(inputDateTime.toString());
+            adaptedDateStr = outputDateTimeFormat.format(inputDateTime);
+            System.out.println(adaptedDateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return adaptedDateStr;
+    }
 }

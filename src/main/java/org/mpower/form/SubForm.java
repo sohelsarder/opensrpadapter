@@ -8,7 +8,10 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -94,7 +97,21 @@ public class SubForm {
                     //System.out.println("Common fields in instance are added.");
                 }
                 if (hm.size() > 0) {
-
+                    if(hm.containsKey("FWBNFDOB")) {
+                        String dateTimeToConvert = hm.get("FWBNFDOB");
+                        SimpleDateFormat inputDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+                        SimpleDateFormat outputDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        String adaptedDateStr = "";
+                        try {
+                            Date inputDateTime = inputDateTimeFormat.parse(dateTimeToConvert);
+                            System.out.println(inputDateTime.toString());
+                            adaptedDateStr = outputDateTimeFormat.format(inputDateTime);
+                            System.out.println(adaptedDateStr);
+                            hm.put("FWBNFDOB", adaptedDateStr);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     boolean noRelationalId = !hm.containsKey("relationalid") || hm.get("relationalid").isEmpty();
                     if (noRelationalId) {
                         if (SubmissionBuilder.variableMapperForForm.get("entityID").startsWith("/")) {

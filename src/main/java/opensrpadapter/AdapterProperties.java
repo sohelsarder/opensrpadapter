@@ -20,6 +20,6 @@ public class  AdapterProperties {
 	public void setBaseurl(String baseurl) {
 		this.baseurl = baseurl;
 	}
-    
-    
+
+
 }
