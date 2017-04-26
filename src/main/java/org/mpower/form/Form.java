@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Form {
+    private static String DEFAULT_BIND_PATH_FOR_BIRTH_NOTIFICATION_FORM = "/model/instance/BirthNotificationPregnancyStatusFollowUp";
     @Expose
     public String bind_type;
     @Expose
@@ -175,6 +176,10 @@ public class Form {
     }
 
     private boolean checkIfConvertibleBirthNotificationDateTimeField(String fieldName) {
+        if(!this.default_bind_path.equalsIgnoreCase(DEFAULT_BIND_PATH_FOR_BIRTH_NOTIFICATION_FORM)) {
+            return false;
+        }
+        
         String FWPSRLMP = "FWPSRLMP";
         String FWEDD = "FWEDD";
 
