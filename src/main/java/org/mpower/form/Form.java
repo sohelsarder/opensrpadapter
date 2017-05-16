@@ -29,6 +29,8 @@ public class Form {
 
     public void buildFields() {
 
+        boolean makeEligible = false;
+
         for (Field field : fields) {
             // condition
             //System.out.println(field.name + " --)");
@@ -50,6 +52,14 @@ public class Form {
                             this.convertBirthNotificationDateTimeFieldValue(convertibleDateTimeStr);
                     field.value = adaptedDateStr;
                 }
+
+
+
+                if(field.name.equalsIgnoreCase("FWPSRSTS")) {
+                    if (field.value.equalsIgnoreCase("01")){
+                        makeEligible = true;
+                    }
+                }
                 //System.out.println( "field.bind - " + field.bind + ", field.name - " + field.name + ", field.value - " + field.value + " ---- " + SubmissionBuilder.variableMapperForForm.get(field.name));
             } else {
 
@@ -67,6 +77,18 @@ public class Form {
 
             }
 
+        }
+
+        if(makeEligible) {
+            for(Field field : fields) {
+                if(field.name.equalsIgnoreCase("FWELIGIBLE")) {
+                    field.value = "1";
+                }
+
+                if(field.name.equalsIgnoreCase("FWNOTELIGIBLE")) {
+                    field.value = "0";
+                }
+            }
         }
 
     }
@@ -179,7 +201,7 @@ public class Form {
         if(!this.default_bind_path.equalsIgnoreCase(DEFAULT_BIND_PATH_FOR_BIRTH_NOTIFICATION_FORM)) {
             return false;
         }
-        
+
         String FWPSRLMP = "FWPSRLMP";
         String FWEDD = "FWEDD";
 
