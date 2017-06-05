@@ -124,6 +124,8 @@ public class SubForm {
                         }
 
                     }
+
+                    hm.put("user_type","FD");
                     System.out.println(new Gson().toJson(hm));
                     instances.add(hm);
                 }
