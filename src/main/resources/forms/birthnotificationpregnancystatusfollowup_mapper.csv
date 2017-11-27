@@ -6,7 +6,7 @@ FWWOMBID,/data/bID
 FWWOMNID,/data/nID
 FWWOMFNAME,/data/name
 FWHUSNAME,/data/husbandName
-FWPSRLMP,/data/lmp
+FWPSRLMP,/data/FDBNFLMP
 today,/data/today
 start,/data/i_start_time
 end,/data/i_end_time
