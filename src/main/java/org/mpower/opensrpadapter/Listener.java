@@ -81,6 +81,8 @@ public class Listener {
 			requestLog.setData_xml(requestQueue.getData_xml());
 			requestLog.setReqeust_time(requestQueue.getReqeust_time());
 			requestLog.setResponse_time(new Date());
+			requestLog.setResponse_time(new Date());
+			requestLog.setRelational_id(requestQueue.getRelational_id());
 			List<String> status = submissionBuilder.buildFormSubmission(requestQueue.getFromName(),
 			    requestQueue.getEntity_id());
 			requestLog.setFormsubmission(status.get(0));

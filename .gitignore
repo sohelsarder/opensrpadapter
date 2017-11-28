@@ -1,7 +1,7 @@
 target/
 .project
 .classpath
-.settings/
+*.settings*
 .DS_Store
 .idea/
 *.iml
@@ -14,3 +14,4 @@ multimedia/
 *.metadata*
 *.recommenders*
 Servers/
+bin/
