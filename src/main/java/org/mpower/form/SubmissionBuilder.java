@@ -14,7 +14,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
 
 import org.mpower.http.HTTPAgent;
-import org.mpower.opensrpadapter.AdapterProperties;
+import org.mpower.properties.AdapterProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,7 @@ public class SubmissionBuilder {
 	
 	@Autowired
 	private AdapterProperties adapterProperties;
+
 	
 	public SubmissionBuilder() {
 	}
@@ -68,7 +69,7 @@ public class SubmissionBuilder {
 		InputStream input = SubmissionBuilder.class.getClassLoader()
 		        .getResourceAsStream(FORMS_DIR + formName + "_mapper.csv");
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(input));//new FileReader(mapperSource));
+			BufferedReader br = new BufferedReader(new InputStreamReader(input));
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] strings = line.split(",");

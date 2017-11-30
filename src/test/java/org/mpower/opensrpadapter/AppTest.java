@@ -1,4 +1,4 @@
-package opensrpadapter;
+package org.mpower.opensrpadapter;
 
 import org.springframework.context.annotation.Configuration;
 

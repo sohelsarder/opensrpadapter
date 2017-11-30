@@ -4,27 +4,20 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
  
 <hibernate-configuration>
-    <session-factory>
- 
+    <session-factory> 
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost/opensrpadapter</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">password</property>
- 
+        <property name="hibernate.connection.password">password</property> 
         <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
- 
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> 
         <!-- Print executed SQL to stdout -->
-        <property name="show_sql">false</property>
- 
+        <property name="show_sql">false</property> 
         <!-- Drop and re-create all database on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
- 
+        <property name="hibernate.hbm2ddl.auto">update</property> 
         <!-- Annotated entity classes -->
         <mapping class="org.mpower.entity.RequestQueue"/>
-         <mapping class="org.mpower.entity.RequestLog"/>
-              
-        
+         <mapping class="org.mpower.entity.RequestLog"/>        
     </session-factory>
 </hibernate-configuration>

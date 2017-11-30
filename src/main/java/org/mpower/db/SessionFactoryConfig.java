@@ -1,4 +1,4 @@
-package org.mpower.opensrpadapter;
+package org.mpower.db;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

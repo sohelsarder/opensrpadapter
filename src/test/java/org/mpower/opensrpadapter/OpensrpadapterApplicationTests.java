@@ -1,4 +1,4 @@
-package opensrpadapter;
+package org.mpower.opensrpadapter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

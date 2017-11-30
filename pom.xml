@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
 		<hibernate.version>4.2.15.Final</hibernate.version>
-    	<start-class>opensrpadapter.OpensrpadapterApplication</start-class>
+    	<start-class>OpensrpadapterApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

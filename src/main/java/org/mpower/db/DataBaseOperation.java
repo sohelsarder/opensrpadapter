@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.mpower.opensrpadapter;
+package org.mpower.db;
 
 import java.util.List;
 
