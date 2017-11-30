@@ -1,4 +1,4 @@
-package org.mpower.opensrpadapter;
+package org.mpower.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +14,21 @@ public class AdapterProperties {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	@Value("${NOTIFICATION_URL}")
 	private String notificationURL;
 	
 	@Value("${SUBMISSION_URL}")
 	private String SUBMISSION_URL;
 	
+
+	@Value("${OPENSRP_USER}")
+	private String user;
+	
+	@Value("${OPENSRP_PASSWORD}")
+	private String password;
+	
+
 	public String getNotificationURL() {
 		return notificationURL;
 	}
@@ -35,10 +44,29 @@ public class AdapterProperties {
 	public void setSUBMISSION_URL(String sUBMISSION_URL) {
 		SUBMISSION_URL = sUBMISSION_URL;
 	}
-	
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
-		return "AdapterProperties [notificationURL=" + notificationURL + ", SUBMISSION_URL=" + SUBMISSION_URL + "]";
+		return "AdapterProperties [notificationURL=" + notificationURL + ", SUBMISSION_URL=" + SUBMISSION_URL
+				+ ", user=" + user + ", password=" + password +  "]";
 	}
+
+	
 	
 }

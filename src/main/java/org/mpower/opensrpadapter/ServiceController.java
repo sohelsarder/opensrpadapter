@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 
+import org.mpower.db.DataBaseOperation;
 import org.mpower.entity.RequestQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -9,11 +9,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.mpower.db.DataBaseOperation;
 import org.mpower.entity.RequestLog;
 import org.mpower.entity.RequestQueue;
 import org.mpower.form.SubmissionBuilder;
 import org.mpower.form.XMLData;
 import org.mpower.http.HTTPAgent;
+import org.mpower.properties.AdapterProperties;
 import org.mpower.util.SearchInXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,7 @@ import org.xml.sax.SAXException;
 
 @Configuration
 @EnableScheduling
-@ComponentScan(basePackages = "org.mpower.form")
+@ComponentScan(basePackageClasses = {SubmissionBuilder.class,AdapterProperties.class})
 public class Listener {
 	
 	@Autowired
@@ -35,6 +37,8 @@ public class Listener {
 	
 	@Autowired
 	private SubmissionBuilder submissionBuilder;
+
+	private static final int listenerDelay=6000;
 	
 	public Listener() {
 		
@@ -42,7 +46,7 @@ public class Listener {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Listener.class);
 	
-	@Scheduled(fixedDelay = 6000)
+	@Scheduled(fixedDelay = listenerDelay)
 	@Transactional
 	public void scheduleFixedDelayTask() {
 		logger.debug("OpenSRP transfer started.......");
@@ -50,6 +54,7 @@ public class Listener {
 		List<RequestQueue> rquestQueues = new DataBaseOperation<RequestQueue>().getAll();
 		ByteArrayInputStream fileIS = null;
 		DocumentBuilder builder = null;
+		boolean isFailure = false;
 		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 		try {
 			builder = builderFactory.newDocumentBuilder();
@@ -88,9 +93,13 @@ public class Listener {
 			requestLog.setFormsubmission(status.get(0));
 			requestLog.setStatus(status.get(1));
 			HTTPAgent httpagent = new HTTPAgent();
-			httpagent.fetch(adapterProperties.getNotificationURL() + "?request_id=" + requestQueue.getReqeust_id()
+			isFailure = httpagent.fetch(adapterProperties.getNotificationURL() + "?request_id=" + requestQueue.getReqeust_id()
 			        + "&entity_id=" + requestQueue.getEntity_id() + "&relational_id=" + requestQueue.getRelational_id()
-			        + "&status=" + status.get(1));
+			        + "&status=" + status.get(1)).isFailure();
+			if(isFailure!=false) {
+				logger.error("could not notify requestId:" + requestQueue.getId());
+				
+			}
 			if (new DataBaseOperation<RequestLog>().save(requestLog) > 0) {
 				if (new DataBaseOperation<RequestQueue>().delete(requestQueue) < 0) {
 					logger.error("could not delete from queue requestId:" + requestQueue.getId());

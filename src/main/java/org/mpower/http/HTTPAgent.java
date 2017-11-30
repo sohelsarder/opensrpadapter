@@ -15,15 +15,24 @@ import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
-
+import org.mpower.form.SubmissionBuilder;
+import org.mpower.opensrpadapter.Listener;
+import org.mpower.properties.AdapterProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+@ComponentScan
 public class HTTPAgent {
 	
 	private final GZipEncodingHttpClient httpClient;
+
+	private static final Logger logger = LoggerFactory.getLogger(HTTPAgent.class);
+	private static final String OPENSRP_USER = "sohel";
 	
-	private static final String OPENSRP_USER = "samnur";
+	private static final String OPENSRP_PWD = "Sohel@123";
 	
-	private static final String OPENSRP_PWD = "Samnur@123";
-	
+
 	public HTTPAgent() {
 		BasicHttpParams basicHttpParams = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(basicHttpParams, 30000);
@@ -46,7 +55,7 @@ public class HTTPAgent {
 			httpPost.setEntity(entity);
 			
 			HttpResponse response = httpClient.postContent(httpPost);
-			System.out.println("HTTP status code:" + response.getStatusLine().getStatusCode());
+			logger.info("HTTP status code:" + response.getStatusLine().getStatusCode());
 			
 			ResponseStatus responseStatus = response.getStatusLine().getStatusCode() == HttpStatus.SC_CREATED
 			        ? ResponseStatus.success
@@ -55,7 +64,7 @@ public class HTTPAgent {
 			return new Response<String>(responseStatus, null);
 		}
 		catch (Exception e) {
-			//logWarn(e.toString());
+			logger.warn("failed: " + e.getMessage());
 			return new Response<String>(ResponseStatus.failure, null);
 		}
 	}
@@ -68,13 +77,16 @@ public class HTTPAgent {
 			return new Response<String>(ResponseStatus.success, responseContent);
 		}
 		catch (Exception e) {
-			System.out.println("failed: " + e.getMessage());
+			logger.warn("failed: " + e.getMessage());
 			return new Response<String>(ResponseStatus.failure, null);
 		}
 	}
 	
+	
 	private String getEncodedCredentials() {
+
 		return new String(Base64.encodeBase64((OPENSRP_USER + ":" + OPENSRP_PWD).getBytes()));
 	}
+
 	
 }
