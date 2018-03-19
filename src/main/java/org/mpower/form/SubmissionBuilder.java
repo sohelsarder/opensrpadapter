@@ -111,13 +111,14 @@ public class SubmissionBuilder {
 	
 	private List<String> writeFormSubmission(String formName, String entityId) {
 		List<String> responseAr = new ArrayList<String>();
-		String jsonPayload = mapToFormSubmissionDTO(formName, entityId);
-		logger.debug("json from xml-- " + jsonPayload + ",SUBMISSION_URL:" + adapterProperties.getSUBMISSION_URL());
+		String jsonPayload = mapToFormSubmissionDTO(formName, entityId);		
 		httpagent = new HTTPAgent();
+		logger.info("sending reqeust to opensrp entityId: " + entityId + ",SUBMISSION_URL:" + adapterProperties.getSUBMISSION_URL());
 		String response = httpagent.post(adapterProperties.getSUBMISSION_URL(), jsonPayload).isFailure() == false ? "S"
 		        : "F";
 		responseAr.add(jsonPayload);
 		responseAr.add(response);
+		logger.info("response received from opensrp entityId: " + entityId + ",response:" + responseAr.get(1));
 		return responseAr;
 	}
 	

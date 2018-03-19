@@ -48,10 +48,8 @@ public class Listener {
 	
 	@Scheduled(fixedDelay = listenerDelay)
 	@Transactional
-	public void scheduleFixedDelayTask() {
-		logger.debug("OpenSRP transfer started.......");
-		SearchInXML searchIndXML = new SearchInXML();
-		List<RequestQueue> rquestQueues = new DataBaseOperation<RequestQueue>().getAll();
+	public void scheduleFixedDelayTask() {		
+		SearchInXML searchIndXML = new SearchInXML();		
 		ByteArrayInputStream fileIS = null;
 		DocumentBuilder builder = null;
 		boolean isFailure = false;
@@ -60,19 +58,22 @@ public class Listener {
 			builder = builderFactory.newDocumentBuilder();
 		}
 		catch (ParserConfigurationException e) {
-			logger.warn("exception:" + e.getMessage());
+			logger.warn("failed to create newDocumentBuilder error:" + e.getMessage());
 			
 		}
+		
+		List<RequestQueue> rquestQueues = new DataBaseOperation<RequestQueue>().getAll();
+		logger.debug("total number of request found in request queue: " + rquestQueues.size());
 		for (RequestQueue requestQueue : rquestQueues) {
 			fileIS = new ByteArrayInputStream(requestQueue.getData_xml());
 			try {
 				XMLData.setXmlDocument(builder.parse(fileIS));
 			}
 			catch (SAXException e) {
-				logger.warn("exception:" + e.getMessage());
+				logger.warn("request processing error requestId: " + requestQueue.getId() + " ,error: " + e.getMessage());
 			}
 			catch (IOException e) {
-				logger.warn("exception:" + e.getMessage());
+				logger.warn("request processing error requestId: " + requestQueue.getId() + " ,error: " + e.getMessage());
 			}
 			
 			RequestLog requestLog = new RequestLog();
@@ -107,6 +108,7 @@ public class Listener {
 				
 			}
 		}
+		logger.info("reqeust processing completed total request processed: " + rquestQueues.size());
 	}
 	
 }
