@@ -79,6 +79,7 @@ public class Notifier {
 						+ startNotify
 						+ " finish_notify : " 
 						+ finishNotify);
+				//check user
 			}
 		}
 
