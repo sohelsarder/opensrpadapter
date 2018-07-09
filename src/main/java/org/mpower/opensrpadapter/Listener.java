@@ -52,7 +52,7 @@ public class Listener {
 		SearchInXML searchIndXML = new SearchInXML();		
 		ByteArrayInputStream fileIS = null;
 		DocumentBuilder builder = null;
-		boolean isFailure = false;
+		//boolean isFailure = false;
 		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 		try {
 			builder = builderFactory.newDocumentBuilder();
@@ -65,6 +65,7 @@ public class Listener {
 		List<RequestQueue> rquestQueues = new DataBaseOperation<RequestQueue>().getAll();
 		logger.debug("total number of request found in request queue: " + rquestQueues.size());
 		for (RequestQueue requestQueue : rquestQueues) {
+			Date startProcess = new Date();
 			fileIS = new ByteArrayInputStream(requestQueue.getData_xml());
 			try {
 				XMLData.setXmlDocument(builder.parse(fileIS));
@@ -87,20 +88,34 @@ public class Listener {
 			requestLog.setData_xml(requestQueue.getData_xml());
 			requestLog.setReqeust_time(requestQueue.getReqeust_time());
 			requestLog.setResponse_time(new Date());
-			requestLog.setResponse_time(new Date());
 			requestLog.setRelational_id(requestQueue.getRelational_id());
+			
+			Date finishProcess = new Date();
+			Date startSubmit = new Date();
 			List<String> status = submissionBuilder.buildFormSubmission(requestQueue.getFromName(),
 			    requestQueue.getEntity_id());
+			Date finishSubmit = new Date();
 			requestLog.setFormsubmission(status.get(0));
 			requestLog.setStatus(status.get(1));
-			HTTPAgent httpagent = new HTTPAgent();
+			requestLog.setIsNotified(0);
+			
+			logger.info("requestID : " + requestQueue.getReqeust_id()
+					+" start_process : " + startProcess
+					+" finish_process : " + finishProcess
+					+" start_submit : " + startSubmit
+					+" finish_submit : " + finishSubmit);
+			//split from here 
+			/*HTTPAgent httpagent = new HTTPAgent();
 			isFailure = httpagent.fetch(adapterProperties.getNotificationURL() + "?request_id=" + requestQueue.getReqeust_id()
 			        + "&entity_id=" + requestQueue.getEntity_id() + "&relational_id=" + requestQueue.getRelational_id()
 			        + "&status=" + status.get(1)).isFailure();
 			if(isFailure!=false) {
 				logger.error("could not notify requestId:" + requestQueue.getId());
 				
-			}
+			}*/
+			//remove only this portion
+			
+			
 			if (new DataBaseOperation<RequestLog>().save(requestLog) > 0) {
 				if (new DataBaseOperation<RequestQueue>().delete(requestQueue) < 0) {
 					logger.error("could not delete from queue requestId:" + requestQueue.getId());

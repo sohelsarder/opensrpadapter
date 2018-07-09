@@ -36,7 +36,7 @@ public class RequestQueue {
 	private String entity_id;
 	
 	private String relational_id;
-	
+
 	@Column(columnDefinition = "text")
 	private String formsubmission;
 	

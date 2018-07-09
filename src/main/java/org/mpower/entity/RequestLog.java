@@ -38,6 +38,26 @@ public class RequestLog {
 	
 	private String relational_id;
 	
+	private int isNotified = 0;
+	
+	private Date notification_time;
+	
+	public Date getNotification_time() {
+		return notification_time;
+	}
+
+	public void setNotification_time(Date notification_time) {
+		this.notification_time = notification_time;
+	}
+
+	public int getIsNotified() {
+		return isNotified;
+	}
+
+	public void setIsNotified(int isNotified) {
+		this.isNotified = isNotified;
+	}
+
 	@Column(columnDefinition = "text")
 	private String formsubmission;
 	
